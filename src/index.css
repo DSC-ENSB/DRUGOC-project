@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.s-header__navbar-row{
+  position: relative;
+  display: table-row;
+  clear: both;
+}
+.s-header__navbar-row-col{
+  width: 50%;
+  display: table-cell;
+  vertical-align: middle;
+}
