@@ -1,14 +1,19 @@
 import React , { Component} from 'react'
-import 'bootstrap/dist/css/bootstrap.css';
 
 
 class Nav extends Component{
     render(){
         return(
-            <div className="s-header__navbar-row">
-                <div className="s-header__navbar-row-col">Hello </div>
-                <div className="s-header__navbar-row-col">Hi</div>
-            </div>
+            <header className="header navbar-fixed-top">
+                <div className="header-navbar">
+                    <div className="header-container">
+                        <div className="header-row">
+                            <div className="half">CNPM</div>
+                            <div className="half">LOG IN</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
         )
     }
 }

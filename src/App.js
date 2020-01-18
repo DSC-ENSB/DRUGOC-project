@@ -7,8 +7,8 @@ import SignUp from './components/SignUp';
 function App() {
   return (
     <React.Fragment>
-      <SignIn />
       <SignUp />
+      <SignIn />
     </React.Fragment>
   );
 }
