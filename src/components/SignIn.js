@@ -2,8 +2,8 @@ import React  from 'react'
 import db from '../firebase';
 
 class SignIn extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             eMail:'',
             PassWord:'',
@@ -31,7 +31,8 @@ class SignIn extends React.Component {
     }
     render(){
         return (
-           <div >
+           <div className={this.props.status?"log-in":'hide '+'log-in'}>
+               <h3>LOG IN</h3>
                <form onSubmit={this.handleSubmit} method="POST" action="/home">
                    <div className={this.state.err==null?"hidden":"alert alert-danger"}>
                        {this.state.err}
@@ -39,18 +40,18 @@ class SignIn extends React.Component {
                    <input type="email" 
                    name="eMail" 
                    value={this.state.eMail}
-                   placeholder="E-mail"
+                   placeholder=" * E-mail"
                    onChange={this.handleChange}
                    required
                    />
                    <input type="password" 
                    name="PassWord" 
                    value={this.state.Password}
-                   placeholder="Password"
+                   placeholder=" * Password"
                    onChange={this.handleChange}
                    required
                    />
-                   <button>LOG IN</button>
+                   <button id='btn'>LOG IN</button>
                </form>
            </div>
         )

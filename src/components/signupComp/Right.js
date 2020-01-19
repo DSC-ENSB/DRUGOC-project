@@ -1,9 +1,9 @@
-import React from 'react'
+import React  from 'react'
 import db from '../../firebase'
 
 class Right extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             Email : '',
             Password :'',
@@ -30,31 +30,31 @@ class Right extends React.Component {
     }
     render (){
         return ( 
-            <div className="col-lg-4 col-sm-4">
+            <div className={this.props.status?'hide '+"flex-signup":'flex-signup'}>
                 <h3>SIGN UP</h3>
                 <div >
-                    <form onSubmit={this.handleSubmit} method="POST" className="center-block width-350--xs bg-color--white-opacity-lightest g-box-shadow__blueviolet-v1 g-padding-x-40--xs g-padding-y-60--xs g-radius--4">
+                    <form onSubmit={this.handleSubmit} method="POST">
                     <div className={this.state.err==null?"hide-alert":"alert alert-danger"}>{this.state.err}</div>
                     <input 
                     name="Email"
                     type="email"
                     value={this.state.Email}
-                    placeholder="Email"
+                    placeholder=" * Email"
                     onChange={this.handleChange}
                     required
                     />
+                    <br></br>
                     <input
                     name="Password"
                     type="password"
                     value={this.state.Password}
-                    placeholder="Password"
+                    placeholder=" * Password"
                     onChange={this.handleChange}
                     required
-                    />
-                    <button>SIGN UP</button>
+                     />
+                     <br></br>
+                    <button id="btn">SIGN UP</button>
                     </form>
-                    <h4>{this.state.Email}</h4>
-                    <h4>{this.state.Password}</h4>
                 </div>
             </div>
         )
