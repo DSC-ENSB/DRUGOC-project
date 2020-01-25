@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
 import SignUp from './components/SignUp';
-//import Home from './components/Home';
+import Home from './components/Home';
 import Nav from './components/Nav';
-//import { BrowserRouter as Router,Switch,Route, Link} from "react-router-dom";
+import Active from './components/Active';
+import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
+
 class App extends React.Component{
   constructor(){
     super();
@@ -15,10 +17,23 @@ class App extends React.Component{
   handleclick(){this.setState(prevState => ({isClicked : !prevState.isClicked}) )}
   render() {
   return (
-    <React.Fragment>
+    <div>
+      <Router>
       <Nav handleclick={this.handleclick} isClicked={this.state.isClicked}/>
-      <SignUp isClicked={this.state.isClicked}/>    
-    </React.Fragment>
+      
+        <Switch>
+          <Route exact path="/">
+              <SignUp isClicked={this.state.isClicked}/>  
+          </Route>
+          <Route exact path='/home'>
+            <Home /> 
+          </Route>
+          <Route>
+            <Active />
+          </Route>
+        </Switch>
+      </Router> 
+    </div>
   );
 }
 }
