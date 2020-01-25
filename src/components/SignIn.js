@@ -1,5 +1,6 @@
 import React  from 'react'
 import db from '../firebase';
+import { Link } from "react-router-dom";
 
 class SignIn extends React.Component {
     constructor(props){
@@ -22,7 +23,6 @@ class SignIn extends React.Component {
         db
         .auth()
         .signInWithEmailAndPassword(this.state.eMail, this.state.PassWord)
-        .then(console.log('Succ login'))
         .catch(error => {
             this.setState({
                 err : error.message
@@ -31,9 +31,9 @@ class SignIn extends React.Component {
     }
     render(){
         return (
-           <div className={this.props.status?"log-in":'hide '+'log-in'}>
+           <div className={this.props.status?"log-in":'hide log-in'}>
                <h3>LOG IN</h3>
-               <form onSubmit={this.handleSubmit} method="POST" action="/home">
+               <form onSubmit={this.handleSubmit} method="POST">
                    <div className={this.state.err==null?"hidden":"alert alert-danger"}>
                        {this.state.err}
                    </div>
@@ -51,7 +51,10 @@ class SignIn extends React.Component {
                    onChange={this.handleChange}
                    required
                    />
-                   <button id='btn'>LOG IN</button>
+                   <Link to='/home'>
+                   <button id='btn' >LOG IN</button>
+                   </Link>
+                  
                </form>
            </div>
         )
