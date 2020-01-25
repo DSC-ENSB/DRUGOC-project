@@ -20,13 +20,13 @@ class Home extends Component{
     }
     handleChange(event){
         const { name , value,type ,checked} = event.target;
-        type == "checkbox"?this.setState({[name]:checked}):this.setState({[name] : value})}
+        type === "checkbox"?this.setState({[name]:checked}):this.setState({[name] : value})}
     handleSubmit(){
         this.writeUserData(this.state.FullName,this.state.password,this.state.email,this.state.PhoneNumber)
         
     }
     writeUserData(userId, name, passwd,mail, Phone) {
-          this.database.ref('Doctors/' + userId).set({
+          db.ref('Doctors/' + userId).set({
           username: name,
           psword:passwd,
           email: mail,
