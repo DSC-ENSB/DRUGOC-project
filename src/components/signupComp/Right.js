@@ -1,13 +1,13 @@
 import React  from 'react'
-import db from '../../firebase'
+import firebase from '../../firebase';
 import { Link } from 'react-router-dom'
 
 class Right extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            Email : '',
-            Password :'',
+            email : '',
+            password :'',
             err:null
         }
     this.handleChange = this.handleChange.bind(this)
@@ -20,45 +20,43 @@ class Right extends React.Component {
             [name] : value
         })
     }
-    /* async sendEmail(){
-        let user = db.auth().currentUser;
-        user?console.log(user):console.log('He shouled Login');
+    /*sendEmail(){
+        let user = firebase.auth().currentUser;
         user.sendEmailVerification().then(function() {
             console.log('Email Have been Sent ')
           }).catch(function(err){
               console.log(err)
         })
     } */
-    handleSubmit(){
-        db
+    handleSubmit(event){
+        event.preventDefault();
+        const { email, password } = this.state;
+        firebase
         .auth()
-        .createUserWithEmailAndPassword(this.state.Email, this.state.Password)
-        .catch(function(error) {
-            this.setState({
-                err:error.message
-            })
+        .createUserWithEmailAndPassword(email,password)
+        .catch(error => { this.setState({err:error.message })
         });
     }
     render (){
         return ( 
             <div className={this.props.status?"hide flex-signup":'flex-signup'}>
                 <h3>SIGN UP</h3>
-                <h4>{this.state.err}</h4>
+                {console.log(this.state.err)}   
                 <div >
-                    <form onSubmit={this.handleSubmit} method="POST">
-                    <div className={this.state.err==null?"hide-alert":"alert alert-danger"}>{this.state.err}</div>
+                    <form onSubmit={this.handleSubmit}>
+                    <div className={this.state.err==null?"hide-alert":"toast"}>{this.state.err}</div>
                     <input 
-                    name="Email"
+                    name="email"
                     type="email"
                     value={this.state.Email}
                     placeholder=" * Email"
                     onChange={this.handleChange}
-                    required="on"
+                    required
                     autoFocus="on"
                     />
                     <br></br>
                     <input
-                    name="Password"
+                    name="password"
                     type="password"
                     value={this.state.Password}
                     placeholder=" * Password"
