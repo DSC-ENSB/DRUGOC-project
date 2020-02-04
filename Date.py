@@ -1,13 +1,21 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr 10 23:15:27 2019
-
-@author: Ala eddine
-"""
 import datetime
 
+datetimeFormat = '%Y-%m-%d %H:%M'
+# en cas d'une bug dans %d   
+def parametreA(DAEI, DEM):
+    difference = datetime.datetime.strptime(DAEI, datetimeFormat]) - datetime.datetime.strptime(DEM, datetimeFormat])
+    return difference
+
+def parametreB(DDMT, DEM):
+    difference = datetime.datetime.strptime(DDMT, datetimeFormat]) - datetime.datetime.strptime(DEM, datetimeFormat])
+    return difference
+ 
+
+
+
+"""
 def DateA():
-    datetimeFormat = '%Y-%m-%d %H:%M'
+    
     print("\nVeuillez introduire la date d'apparition de l'effet indésirable: ")
     print("\nYYYY-MM-DD H:M ")
     an=0
@@ -131,4 +139,4 @@ def DateB():
     print("\nJours:", diff.days)
     print("Heures:", int(diff.seconds/3600))
     print("Minutes:", int(((diff.seconds/3600-int((diff.seconds/3600)))*60)))
-    return diff
+    return diff"""

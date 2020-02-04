@@ -34,7 +34,7 @@ def CritèresSémiologiques(medicament):
         except:
             print("Entrée éronnée !!")
             print("Ressayer\n")
-            
+    # Coté base de données 
     print("\nSémiologie clinique ou paraclinique: ")
     print("1: Evocatrice du role de ce médicament ET facteur favorisant bien validé du couple EI/M")
     print("2: Evocatrice du role de ce médicament OU facteur favorisant bien validé du couple EI/M")

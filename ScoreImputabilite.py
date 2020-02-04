@@ -9,13 +9,13 @@ import CriteresSemio
 #import traitementChronologique
 import CritèresChronologiquesNonSpecifie
 
-def ScoreImputabilité(medicament, EI):
+def ScoreImputabilite(medicament, EI):
     #Liste_EI=['atteintes hépatiques', 'neutropènie', 'thrombopènie', 'anémie hémolytique aiguë immuno-allergique', 'purpura vasculaire', 'phototoxicité médicamenteuse', 'photoallergie médicamenteuse', 'insuffisance rénale aiguë', 'pneumopathie interstitielle']
     #for i in range(0,len(Liste_EI)):
         #if EI == Liste_EI[i]:
             #if DélaiA == 0:
                 #DAEI=CritèresChronologiquesNonSpecifie.CCNS(EI, DélaiA)
-    Cc=CriteresChrono.CritèresChronologiques(EI)
+    Cc=CriteresChrono.CriteresChronologiques() # pourquoi l'effet indiserable est comme argument !?
     Cs=CriteresSemio.CritèresSémiologiques(medicament)
     Cs=str(Cs)
     Cc=str(Cc)

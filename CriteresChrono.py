@@ -4,8 +4,73 @@ Created on Wed Apr 10 17:08:59 2019
 
 @author: Ala eddine
 """
+import json
+import sys 
 
-def CritèresChronologiques(EI):
+def CriteresChronologiques(): #Pourquoi l'effet indiserable comme parametre ?!
+    path = sys.argv[1]    
+    with open(path, 'r') as jsonFile:
+        data = jsonFile.read()
+    obj = json.loads(data)
+    DAEI = obj["delaiDapparitionCritereChrono"] 
+    EEI = obj["evolutionDeffet"]
+    R = obj["reAdministration"]
+    #DAEI, EEI, R sont obtenus à partir json file
+    
+    if EEI == 0:
+        #print("Evolution de l'effet: <<Suggestive>>") 
+        # Evolution de l'effet: <<Suggestive>> est un message  dans l'interface
+        EEI = 1
+    elif EEI > 0 and EEI < 6: 
+        print("Evolution de l'effet: <<Non concluante>>")
+        EEI = 2
+    elif EEI == 6 or EEI == 7:
+        print("Evolution de l'effet: <<Non suggestive>>")
+        EEI = 3
+    if DAEI == 1:
+        if R == 1:
+            if EEI != 3:
+                CC="C3"
+            else:
+                CC="C1"
+        elif R == 2:
+            if EEI == 1:
+                CC="C3"
+            elif EEI == 2:
+                CC="C2"
+            elif EEI == 3:
+                CC="C1"
+        elif R == 3:
+            CC="C1"
+    elif DAEI == 2:
+        if R == 1:
+            if EEI != 3:
+                CC="C3"
+            else:
+                CC="C1"
+        elif R == 2:
+            if EEI == 1:
+                CC="C2"
+            else:
+                CC="C1"
+        elif R == 3:
+            CC="C1"
+    elif DAEI == 3:
+        if EEI != 3:
+            CC="C0"
+        else:
+            CC="C1"
+    
+    #print("Critères chronologiques: ", CC)
+    return CC
+    
+
+
+
+
+
+"""
+
     print("\n<__________________________Critères chronologiques__________________________>")
     DAEI=0
     print("Délai d'apparition de l'effet indésirable: \n1: Suggestif \n2: Compatible \n3: Incompatible")
@@ -60,40 +125,5 @@ def CritèresChronologiques(EI):
         except:
             print("Entrée éronnée !!")
             print("Ressayer\n")
-            
-    if DAEI == 1:
-        if R == 1:
-            if EEI != 3:
-                CC="C3"
-            else:
-                CC="C1"
-        elif R == 2:
-            if EEI == 1:
-                CC="C3"
-            elif EEI == 2:
-                CC="C2"
-            elif EEI == 3:
-                CC="C1"
-        elif R == 3:
-            CC="C1"
-    elif DAEI == 2:
-        if R == 1:
-            if EEI != 3:
-                CC="C3"
-            else:
-                CC="C1"
-        elif R == 2:
-            if EEI == 1:
-                CC="C2"
-            else:
-                CC="C1"
-        elif R == 3:
-            CC="C1"
-    elif DAEI == 3:
-        if EEI != 3:
-            CC="C0"
-        else:
-            CC="C1"
+            """
     
-    print("Critères chronologiques: ", CC)
-    return CC

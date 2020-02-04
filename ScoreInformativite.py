@@ -6,7 +6,30 @@ Created on Wed Apr 10 17:08:15 2019
 """
 import Date
 
-def ScoreInformativité():
+def ScoreInformativite(DAEI, DDMT, DEM):
+    if DEAI: 
+        delaiA = Date.parametreA(DAEI, DEM)
+        #delaiA en jours delaiA.days
+        #Si delaiA est négatif criterechrono = C0 
+    else: 
+        delaiA = 0
+        
+    if DDMT:
+        delaiB = Date.parametreB(DDMT, DEM)
+        #delaiB en jours delaiB.days
+    else: 
+        delaiB = 0
+
+    if (DAEI and DDMT):
+        SI = "NI2"
+    elif (DAEI or DDMT):
+        SI = "NI1"
+    else:
+        SI = "NIO"
+    return (delaiA, delaiB, SI)
+
+
+"""
     print("<__________________________Score d'informativité__________________________>")
     print("\nA: Délai de survenue de l'effet indésirable par rapport à la période d'exposition au médicament")
     print("1: Est renseigné")
@@ -48,4 +71,4 @@ def ScoreInformativité():
         SI="NI1"
     else:   
         SI="NI0"
-    return (SI, DélaiA, DélaiB)
+    return (SI, DélaiA, DélaiB)"""
