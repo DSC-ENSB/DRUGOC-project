@@ -4,6 +4,7 @@ import SignUp from './components/SignUp';
 import Home from './components/Home';
 import Nav from './components/Nav';
 import Active from './components/Active';
+import Profile from './components/Profile';
 import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
 class App extends React.Component{
@@ -13,8 +14,28 @@ class App extends React.Component{
       isClicked : false
     }
     this.handleclick = this.handleclick.bind(this);
+    //this.PrivateRoute = this.PrivateRoute.bind(this);
   }
   handleclick(){this.setState(prevState => ({isClicked : !prevState.isClicked}) )}
+  /* PrivateRoute({ children, ...rest }) {
+    return (
+      <Route
+        {...rest}
+        render={({ location }) =>
+          fakeAuth.isAuthenticated ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/",
+                state: { from: location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  } */
   render() {
   return (
     <div>
@@ -28,14 +49,18 @@ class App extends React.Component{
           <Route exact path='/home'>
             <Home /> 
           </Route>
-          <Route>
+          <Route exact path='/activate'>
             <Active />
+          </Route>
+          <Route exact path='/profile'>
+            <Profile />
           </Route>
         </Switch>
       </Router> 
     </div>
   );
 }
+
 }
 
 export default App;
