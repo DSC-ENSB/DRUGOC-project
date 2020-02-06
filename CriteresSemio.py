@@ -1,11 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr 10 17:09:36 2019
-
-@author: Ala eddine
-"""
 import MeSH
 import DrugBank
+import sys, json
 
 def CritèresSémiologiques(medicament):
     print("\n<__________________________Critères sémiologiques__________________________>")
@@ -35,6 +30,70 @@ def CritèresSémiologiques(medicament):
             print("Entrée éronnée !!")
             print("Ressayer\n")
     # Coté base de données 
+    
+    json_path = sys.argv[1]
+    
+    with open(json_path, 'r') as myFile:
+        data = myFile.read()
+
+    obj = json.loads(data)
+    
+    SCPC = obj["critereSemiologiqueCliniqueOuParaclinique"]
+    ACNM = obj["autreCauseNonMedicamenteuse"]
+    EC = obj["examenComplementaire"]
+
+    if SCPC == 1:
+        if L != 3:
+            if ACNM != 3:
+                CS="S3"
+            else:
+                CS="S2"
+        else:
+            if ACNM == 1:
+                CS="S2"
+            else:
+                CS="S1"
+    elif SCPC == 2:
+        if L == 1:
+            if ACNM != 3:
+                CS="S3"
+            else:
+                CS="S2"
+        elif L == 2:
+            if ACNM == 1:
+                CS="S3"
+            elif ACNM == 2:
+                CS="S2"
+            else:
+                CS="S1"
+        else:
+            CS="S1"
+    else:
+        if L == 1:
+            if ACNM != 3:
+                CS="S3"
+            else:
+                CS="S1"
+        elif L == 2:
+            if ACNM != 1:
+                CS="S1"
+            else:
+                CS="S2"
+        else:
+            if ACNM != 3:
+                CS="S1"
+            else:
+                CS="S0"
+
+    return CS
+    
+    
+    
+    
+    
+    
+    
+   """ 
     print("\nSémiologie clinique ou paraclinique: ")
     print("1: Evocatrice du role de ce médicament ET facteur favorisant bien validé du couple EI/M")
     print("2: Evocatrice du role de ce médicament OU facteur favorisant bien validé du couple EI/M")
@@ -120,3 +179,4 @@ def CritèresSémiologiques(medicament):
                 CS="S0"
     print("Critères sémiologiques: ", CS)
     return CS
+    """
