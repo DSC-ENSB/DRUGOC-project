@@ -136,8 +136,13 @@ content: " ";
   }
 }
 /* Display Control Class  */
+/* control Classes */
 .hide{
   display: none;
+}
+.upper{
+  position: relative;
+  z-index: 9999;
 }
 /* Media Query */
 @media screen and (max-width: 480px){
@@ -149,4 +154,35 @@ content: " ";
     line-height: 2;
     color: white;
   }
+}
+/* Styling Profile Component */
+.Profile{
+  height: 100vh;
+}
+.side-bar{
+  position: fixed;
+  height: 100vh;
+  top:0;
+  left: 0;
+  background-color: black;
+  width: 73px;
+  color: #fff !important;
+}
+.Intro{
+  text-align: justify;
+  line-height: 2;
+  max-width: 600px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.raised{
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 999;
+  top: 0;
+  left: 0;
 }
