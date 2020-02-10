@@ -17,38 +17,40 @@ class PharmacoTool extends React.Component{
     render(){
         return(
             <div className={this.props.status?"pharma raised":'hide raised'}>
-            <input 
-            type='text'
-            placeholder='DCI'
-            />
-            <input 
-            type='number'
-            placeholder='N°lot'
-            />
-            <input 
-            type='text'
-            placeholder='Posology'
-            />
-            <input 
-            type='date'
-            placeholder='DAEI'
-            />
-            <input 
-            type='date'
-            placeholder='DEM'
-            />
-            <input 
-            value={this.state.ddmt}
-            name='ddmt'
-            type='text'
-            onChange={this.handlchange}
-            placeholder='DDMT'
-            />
-            <input 
-            type='text'
-            placeholder='Voie '
-            />
-           <h3>{this.state.ddmt}</h3> 
+                <form>
+                    <input 
+                    type='text'
+                    placeholder='DCI'
+                    />
+                    <input 
+                    type='number'
+                    placeholder='N°lot'
+                    />
+                    <input 
+                    type='text'
+                    placeholder='Posology'
+                    />
+                    <input 
+                    type='date'
+                    placeholder='DAEI'
+                    />
+                    <input 
+                    type='date'
+                    placeholder='DEM'
+                    />
+                    <input 
+                    value={this.state.ddmt}
+                    name='ddmt'
+                    type='date'
+                    onChange={this.handlchange}
+                    placeholder='DDMT'
+                    />
+                    <input 
+                    type='text'
+                    placeholder='Voie '
+                    />
+                <h3>{this.state.ddmt}</h3> 
+           </form>
             </div>
         )
     }
