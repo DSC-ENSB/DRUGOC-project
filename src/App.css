@@ -186,3 +186,22 @@ content: " ";
   top: 0;
   left: 0;
 }
+ul li{
+  text-align: center;
+  color: white;
+  list-style: none;
+  transition: all .5s linear;
+  cursor: pointer;
+}
+#lst_child{
+  position: fixed;
+  bottom: 10px;
+  left:18px;
+  transform: rotate(-180deg);
+}
+ul li:hover{
+  color:#1fb5cf;
+}
+svg{
+  font-size:30px;
+}
