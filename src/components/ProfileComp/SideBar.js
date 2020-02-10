@@ -1,6 +1,7 @@
 import React ,{ Component } from "react";
 import firebase from '../../firebase';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import {FaUserCircle ,FaRegEdit,FaSignOutAlt ,FaRegBell} from "react-icons/fa";
 
 class SideBar extends Component{
     constructor(){
@@ -25,13 +26,28 @@ class SideBar extends Component{
     render(){
         return(
             <div className="side-bar">
+                
+                
+                
                 <ul>
                     <Link to='/home'>
-                    <li>Update </li>
+                    <li title="Update Your Personal Information">
+                    <FaUserCircle /> 
+                    </li>
                     </Link>
-                    <li><button onClick={this.RaisePharma}>add</button> </li>
-                    <li><button onClick={this.signOut}>signOut</button></li>
+                    <li>
+                        <FaRegBell />
+                    </li>
+                    <li>
+                        <FaRegEdit onClick={this.RaisePharma}/>
+                    </li>
                 </ul>
+                    
+                        <FaSignOutAlt 
+                        id="lst_child" 
+                        title="Sign Out" 
+                        onClick={this.signOut}/>
+                    
             </div>
         )
     }
