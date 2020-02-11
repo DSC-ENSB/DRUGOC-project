@@ -6,7 +6,8 @@ Created on Wed Apr 10 17:11:49 2019
 """
 import webbrowser
 
-def ImputabulitéExtrinsèque():
+def imputabiliteExtrinseque():
+    
     print("<___________________Imputabilité Extrinsèque____________________>")
     print("Souhaitez vous rechercher le résumé des caractéristiques du produit 'RCP': \n1: Oui \n2: Non")
     rep=0
