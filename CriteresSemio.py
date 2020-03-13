@@ -3,40 +3,7 @@ import DrugBank
 #import sys, json
 
 def criteresSemiologiques(medicament, obj):
-    """print("\n<__________________________Critères sémiologiques__________________________>")
-    p=MeSH.MeSH(medicament)
-    p=str(p)
-    descr=medicament + ": " + p+"\n"
-    print(descr)
-    save=DrugBank.DrugBank(medicament)
-    
-    print("\n#################################################")
-    print("Souhaitez vous enregistrer les informations sur le médicament sur disque ?")
-    print("1: Oui \n2: Non")
-    ans=0
-    while ans < 1 or ans > 2:   
-        try:
-            ans=int(input("Entrez votre choix: "))
-            if ans == 1:
-                dossier=input("Veuillez introduire le chemin du dossier de sauvegrade: ")
-                name=dossier+medicament+".txt"
-                fichier=open(name, "w")
-                fichier.write(descr)
-                fichier.write(save)
-                fichier.close()
-            elif ans != 2:
-                print("Veuillez choisir entre 1 et 2, s'il vous plait")
-        except:
-            print("Entrée éronnée !!")
-            print("Ressayer\n")"""
-    # Coté base de données 
-    
-    #json_path = sys.argv[1]
-    
-    #with open(json_path, 'r') as myFile:
-    #    data = myFile.read()
 
-    #obj = json.loads(data)
     
     SCPC = obj["critereSemiologiqueCliniqueOuParaclinique"]
     
