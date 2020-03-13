@@ -19,7 +19,8 @@ class SignIn extends React.Component {
             [name] : value
         })
     }
-    handleSubmit(){
+    handleSubmit(event){
+        event.preventDefault();
         db
         .auth()
         .signInWithEmailAndPassword(this.state.eMail, this.state.PassWord)
@@ -33,7 +34,7 @@ class SignIn extends React.Component {
         return (
            <div className={this.props.status?"log-in":'hide log-in'}>
                <h3>LOG IN</h3>
-               <form onSubmit={this.handleSubmit} method="POST">
+               <form onSubmit={this.handleSubmit} method="POST" action="/profile">
                    <div className={this.state.err==null?"hidden":"alert alert-danger"}>
                        {this.state.err}
                    </div>
@@ -51,9 +52,7 @@ class SignIn extends React.Component {
                    onChange={this.handleChange}
                    required
                    />
-                   <Link to='/home'>
-                   <button id='btn' >LOG IN</button>
-                   </Link>
+                   <button className='btn'>LOG IN</button>
                   
                </form>
            </div>
