@@ -19,35 +19,34 @@ class SideBar extends Component{
     }
     RaisePharma(){
         const pharma =document.getElementsByClassName('raised')[0];
-        //const intro = document.getElementsByClassName('Intro')[0];
-        pharma.style.display = "block"
+        pharma.style.display = "flex"
         
     }
     render(){
         return(
             <div className="side-bar">
-                
-                
-                
+                <Link to='/home'>
+                    <FaUserCircle 
+                    title="Update Your Personal Information"
+                    className="child st_child"
+                    /> 
+                </Link>
                 <ul>
-                    <Link to='/home'>
-                    <li title="Update Your Personal Information">
-                    <FaUserCircle /> 
-                    </li>
-                    </Link>
                     <li>
-                        <FaRegBell />
+                        <FaRegBell 
+                        title="See Some Notification"
+                        />
                     </li>
                     <li>
-                        <FaRegEdit onClick={this.RaisePharma}/>
+                        <FaRegEdit 
+                        title="Sumbit New Drug"
+                        onClick={this.RaisePharma}/>
                     </li>
                 </ul>
-                    
-                        <FaSignOutAlt 
-                        id="lst_child" 
-                        title="Sign Out" 
-                        onClick={this.signOut}/>
-                    
+                    <FaSignOutAlt 
+                    className="child lst_child" 
+                    title="Sign Out" 
+                    onClick={this.signOut}/>
             </div>
         )
     }
