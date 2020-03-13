@@ -1,6 +1,6 @@
 import React  from 'react'
 import firebase from '../../firebase';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 class Right extends React.Component {
     constructor(props){
@@ -43,8 +43,8 @@ class Right extends React.Component {
                 <h3>SIGN UP</h3>
                 {console.log(this.state.err)}   
                 <div >
-                    <form onSubmit={this.handleSubmit}>
-                    <div className={this.state.err==null?"hide-alert":"toast"}>{this.state.err}</div>
+                    <form onSubmit={this.handleSubmit} action="/profile" method="POST">
+                    <div className={this.state.err==null?"hide-alert":"alert alert-danger"}>{this.state.err}</div>
                     <input 
                     name="email"
                     type="email"
@@ -64,9 +64,7 @@ class Right extends React.Component {
                     required
                      />
                      <br></br>
-                     <Link to='/activereq'>
-                    <button id="btn">SIGN UP</button>
-                    </Link>
+                    <button className="btn">SIGN UP</button>
                     </form>
                 </div>
             </div>
