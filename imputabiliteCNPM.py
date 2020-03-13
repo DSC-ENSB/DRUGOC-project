@@ -1,7 +1,10 @@
 import ScoreInformativite
 import ScoreImputabilite
-import ImputabiliteExtrinseque
-import Sauvegarde
+import CriteresChrono
+import CriteresSemio
+import Parser 
+#import ImputabiliteExtrinseque
+#import Sauvegarde
 #import sys  
 #import json 
 
@@ -17,30 +20,48 @@ def imputabiliteProcess(data_json):
 
     results = []
     
-    for i in range(data_json["medicament"][i]):
+    for i in range(len(data_json["medicament"])):
         
-        for j in range(data_json["effetIndiserable"][j]):
+        for j in range(len(data_json["effetIndiserable"])):
              
             delaiA, delaiB, SI = ScoreInformativite.ScoreInformativite(
                 data_json["medicament"][i]["dateDapparitionDeLeffetIndiserable"],
                 data_json["medicament"][i]["dateDarretOuModificationDuTraitement"],
                 data_json["medicament"][i]["dateDexpositionAuMedicament"]
             )
+
+            scoreCriteresChrono = CriteresChrono.CriteresChronologiques(data_json) 
+
+            scoreCriteresSemio = CriteresSemio.criteresSemiologiques(data_json["medicament"][i]["DCI"], data_json )
             
             scoreIntrinseque = ScoreImputabilite.ScoreImputabilite(
                 data_json["medicament"][i]["DCI"], 
                 data_json
             )
+            
+            #criteres chrono + critères sémio 
+            if Parser.ansm_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]):
+                scoreExtrinseque = "B4"
+                
+            elif Parser.sider_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]):
+                scoreExtrinseque = "B3" 
 
-            scoreExtrinseque = ImputabiliteExtrinseque.imputabiliteExtrinseque()
+            elif Parser.pub_med_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]):
+               scoreExtrinseque = "B2"
+            
+            else:
+                scoreExtrinseque = "B1"
 
             results.append(
                 {
+                   "interaction" : "imputabilité entre le médicament N° "+ str(j+1) + " et l'effet indisérable N° " + str(i+1),
                    "delaiA" : delaiA,
                    "delaiB" : delaiB,
                    "scoreInformativite" : SI,
+                   "criteresChronologiques" : scoreCriteresChrono,
+                   "criteresSemiologiques" : scoreCriteresSemio,
                    "scoreDeLimputabiliteIntrinseque" : scoreIntrinseque,
-                   "scoreDeLimputabiliteExtrinseque" : scoreExtrinseque 
+                   "scoreDeLimputabiliteExtrinseque" : scoreExtrinseque
                 }
             )
             # append le premier médicament avec l'ensemble des effets indisérables, ensuite le deuxième etc ...
@@ -48,6 +69,38 @@ def imputabiliteProcess(data_json):
     return results
  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
     #medicament=str(input("Veuillez introduire le médicament à imputer: "))
     #medicament=medicament.lower()
     #medicament=medicament.replace(str(medicament[0]),str(medicament[0]).capitalize())

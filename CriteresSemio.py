@@ -39,8 +39,14 @@ def criteresSemiologiques(medicament, obj):
     #obj = json.loads(data)
     
     SCPC = obj["critereSemiologiqueCliniqueOuParaclinique"]
+    
     ACNM = obj["autreCauseNonMedicamenteuse"]
+    
     EC = obj["examenComplementaire"]
+
+    L = obj["autreCauseNonMedicamenteuse"]
+
+    CS = ""
 
     if SCPC == 1:
         

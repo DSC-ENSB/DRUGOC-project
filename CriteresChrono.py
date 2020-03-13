@@ -13,6 +13,8 @@ def CriteresChronologiques(obj):
     EEI = obj["evolutionDeffet"]
    
     R = obj["reAdministration"]
+
+    CC = ""
     
     #DAEI, EEI, R sont obtenus à partir json file
     
@@ -32,7 +34,7 @@ def CriteresChronologiques(obj):
     if DAEI == 1:
    
         if R == 1:
-            CC = "C3" if EEI != 3 else CC = "C1"
+            CC = "C3" if EEI != 3 else "C1"
    
         elif R == 2:
             if EEI == 1:
@@ -49,17 +51,16 @@ def CriteresChronologiques(obj):
    
     elif DAEI == 2:
         if R == 1:
-            CC = "C3" if EEI != 3 else CC = "C1"    
+            CC = "C3" if EEI != 3 else "C1"    
    
         elif R == 2:
-            CC = "C2" if EEI == 1 else CC = "C1"
+            CC = "C2" if EEI == 1 else "C1"
    
         elif R == 3:
             CC="C1"
    
     elif DAEI == 3:
-        CC = "C0" if EEI != 3 else CC = "C1"
-    #print("Critères chronologiques: ", CC)
+        CC = "C0" if EEI != 3 else "C1"
    
     return CC
     
@@ -126,5 +127,5 @@ def CriteresChronologiques(obj):
         except:
             print("Entrée éronnée !!")
             print("Ressayer\n")
-            """
-    
+"""
+ 

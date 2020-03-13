@@ -1,13 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr 10 17:08:15 2019
-
-@author: Ala eddine
-"""
 import Date
 
 def ScoreInformativite(DAEI, DDMT, DEM):
-    if DEAI: 
+    if DAEI: 
         delaiA = Date.parametreA(DAEI, DEM)
         #delaiA en jours delaiA.days
         #Si delaiA est négatif criterechrono = C0 
@@ -27,6 +21,21 @@ def ScoreInformativite(DAEI, DDMT, DEM):
     else:
         SI = "NIO"
     return (delaiA, delaiB, SI)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 """
