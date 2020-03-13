@@ -38,17 +38,29 @@ input{
   background: transparent;
   margin: 20px 0 !important;
   transition: cubic-bezier(.55,.06,.68,.19);
+  color: white;
 }
 input:focus{
   border-bottom : 0.625px solid rgba(0, 0, 0, 1);
 }
 #btn{
-  background-color: #fff;
+  background-color: #1fb5cf;
   border: none;
   border-radius: 50px!important;
   height: 50px;
   margin: 20px 0 !important;
   min-width: 100%;
+  color: white  !important;
+  transition: cubic-bezier(.55,.06,.68,.19);
+}
+.btn{
+  background-color: white !important;
+  border: none;
+  border-radius: 50px!important;
+  height: 50px;
+  margin: 20px 0 !important;
+  min-width: 100%;
+  color: black  !important;
   transition: cubic-bezier(.55,.06,.68,.19);
 }
 /* The of User interaction style  */
@@ -186,22 +198,125 @@ content: " ";
   top: 0;
   left: 0;
 }
-ul li{
+.child{
+  position: fixed;
+  left:18px;
+}
+.st_child{
+  top:15px;
+}
+.lst_child{
+  transform: rotate(-180deg);
+  bottom: 10px;
+}
+ul{
   text-align: center;
   color: white;
   list-style: none;
   transition: all .5s linear;
   cursor: pointer;
+  position: relative;
+  top:50%;
+  transform: translate(0,-70%);
 }
-#lst_child{
-  position: fixed;
-  bottom: 10px;
-  left:18px;
-  transform: rotate(-180deg);
+ul li{
+  margin-bottom:40px;
 }
 ul li:hover{
   color:#1fb5cf;
 }
 svg{
   font-size:30px;
+}
+/* PharmacoTool Style */
+.pharma{
+  display: flex;
+  flex-direction:column ;
+  flex-wrap: wrap;
+}
+/* #pharmatoolin{
+  max-width: 350px;
+  margin: 20px 0 0 auto;
+  text-align: center; 
+  box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);
+  border-radius: 8px;
+  padding: 0 50px;
+} */
+.meds-name{
+  overflow-y: auto ;
+  max-width: 510px; 
+  border: 1px solid #dde2e7;
+  border-radius:8px;
+  text-align: center;
+  height: 45%;  
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);
+}
+.meds-info{
+  max-width: 350px;
+  text-align: center; 
+  margin-bottom: 20px !important;
+  box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);
+  border-radius: 8px;
+  padding: 0 50px;
+  position: absolute;
+  top: 20px;  
+  right: 0;
+  z-index: 1;
+}
+.side-effects{
+  max-width: 510px; 
+  border: 1px solid #dde2e7;
+  border-radius:8px;
+  text-align: center;
+  box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);
+  height: 45%;
+}
+.pharmaInput{
+  color: black;
+  border: 1px solid #ececec;
+  transition: all .6s linear;
+  border-radius: 8px;
+}
+.pharmaInput:focus{
+  border: 1px solid #1fb5cf;
+}
+.med-add-button{
+  background-color: #1fb5cf;
+  border: none;
+  height: 50px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px;
+  width: 50px;
+  border-radius: 50%;
+  color: white !important;
+  transition: cubic-bezier(.55,.06,.68,.19);
+  z-index: 200;
+}
+input[type="date"]{
+  color: #222324;
+}
+textarea{
+  height: 3.25rem !important;
+  background-color: white;
+  padding-top: 0.8125rem;
+}
+.data-details{
+  background-color: #222324;
+  color: #1fb5cf;
+  position: absolute;
+  height: 45px;
+  min-width: 350px;
+  top:5%;
+  display: none;
+  left: 50%;
+  transform: translate(-50%,-5%);
+  z-index: 9999;
+  text-align:center;
+  line-height: 45px;
+  border-radius: 8px;
 }

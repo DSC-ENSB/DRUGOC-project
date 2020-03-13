@@ -6,7 +6,7 @@ class Nav extends Component{
         return(
             <header>
                 <div className="flex-nav">
-                    <div className="flex-nav-right" style={{fontSize:32}}>CNPM</div>
+                    <div className="flex-nav-right" style={{fontSize:32}}>DRUGOC</div>
                     <div className="flex-nav-left">
                         <button 
                         onClick={this.props.handleclick}
