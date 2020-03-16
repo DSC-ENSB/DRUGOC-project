@@ -1,25 +1,36 @@
 import React from 'react'
 import { FaPlus } from 'react-icons/fa'
+import { setInterval } from 'timers';
 
 class PharmacoTool extends React.Component{
     constructor(props){
         super(props);
         this.clickNumber = 0
-        this.state = {
-            drugs:[{name:" ex : Paracétamole"}],
-            Posology:[{dosage:""}],
-            Voie:[{via:""}],
-            lot:[{number:""}],
-            deai:[{date:""}],
-            dem:[{date:""}],
-            ddmt:[{date:""}],
-            effectsInd:[{effects:""}]
+        this.state = { 
+            details : '',
+            medicament:[{
+                DCI : "",
+                nomberDelot:0,
+                posology:"",
+                dataDapparitionDeleffetIndiserable:"",
+                dateDexpositionAuMedicament:"",
+                dateDarretOuModificationDuTraitement:"",
+                VI:""
+            }], 
+            effetIndiserable:[],
+            delaiDapparitionCritereChrono:0,
+            evolutionDeffet:0,
+            reAdministration:0,
+            critereSemiologiqueCliniqueOuParaclinique:0,
+            autreCauseNonMedicamenteuse:0,
+            examenComplementaire:0,    
         }
         this.handlchange = this.handlchange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.didDciMatch = this.didDciMatch.bind(this)
         this.addDrug = this.addDrug.bind(this)
         this.showInfo = this.showInfo.bind(this)
+        this.isFocused=this.isFocused.bind(this)
     }
     handlchange(event){
         const {name ,value } = event.target
@@ -33,32 +44,65 @@ class PharmacoTool extends React.Component{
         console.log(JSON.stringify(this.state.drugs))
     }
     addDrug(){
-        this.state.drugs.pus({ name: "" });
-        this.setState([...this.state.drugs]);
+        this.state.medicament.push({
+            DCI : "",
+            nomberDelot:0,
+            posology:"",
+            dataDapparitionDeleffetIndiserable:"",
+            dateDexpositionAuMedicament:"",
+            dateDarretOuModificationDuTraitement:"",
+            VI:""
+        })
+        this.setState([...this.state.medicament]);
+        console.log(this.state)
+    }
+    isFocused(bi){
+        console.log(bi)
     }
     didDciMatch(mdrugs){
         //console.log(this.state.drugs)
     }
-    showInfo(){
-        const DAEI = document.getElementsByTagName('input[type==date]')[0]
-        console.log(DAEI);
+    showInfo(type){
+        let info;
+        const dataBanner = document.querySelector('.data-details')
+        setInterval(() => {
+            dataBanner.classList.toggle('show')
+        }, 10);
+        switch (type) {
+            case 'dem':
+                info = "délié D'apparition "
+                this.setState({details:info})
+                break
+            case 'daei':
+                info = "délié D'apparition l'effet indésirable"
+                this.setState({details:info})
+                break
+            case 'ddmt':
+                info = "délié "
+                this.setState({details:info})
+                break;
+          }
+        
+        //Show information about that input 
+        //hide the information 
     }
     render(){
         return(
-        <div className={this.props.status?"pharma raised":'hide raised'}>
-            <section className="meds-name">
+         <div className={this.props.status?"pharma raised":'hide raised'}>
+            <section className="box meds-name">
                 <h4 style={{'paddingTop':20}}>Medicaments</h4>
-            {this.state.drugs.map((drug,index) => (
+            {this.state.medicament.map((drug,index) => (
             <div>
             <input
             placeholder="   Name of the Drug"
             required={true}
+            onFocus={() => this.isFocused(index)}
             className="pharmaInput"
             key={index}
-            value={drug.name}
+            value={drug.DCI}
             onChange={event => {
-              this.state.drugs[index].name = event.target.value;
-              this.setState([...this.state.drugs]);
+              this.state.medicament[index].DCI = event.target.value;
+              this.setState([...this.state.medicament]);
             }}
             />
             <br></br>
@@ -71,9 +115,9 @@ class PharmacoTool extends React.Component{
                 />
             </section>
             <section className="data-details">
-                Informations
+                 {this.state.details}
             </section>
-            <section className="side-effects">
+            <section className="box side-effects">
             <h4 style={{'paddingTop':20}}>Effects Indesirables</h4>
                 <textarea 
                 name="effects"
@@ -82,10 +126,11 @@ class PharmacoTool extends React.Component{
                 placeholder="   Side Effect"
                 className="pharmaInput"
                 />
+                <button id="btn" onSubmit={this.handleSubmit}>Submit</button>
             </section>
             <section className="meds-info">
-                {this.state.drugs.map((drug,i)=>(
-                <form id="pharmatoolin" onSubmit={this.handleSubmit} method="POST">
+                {this.state.medicament.map((drug,i)=>(
+                <form className="pharmatoolin" method="POST">
                     <h5 style={{paddingTop:'40px'}}>Informations</h5>
                     <input 
                     type='text'
@@ -110,20 +155,22 @@ class PharmacoTool extends React.Component{
                     <input 
                     type='date'
                     placeholder='DAEI'
+                    onFocus={(e) =>this.showInfo('daei',e)}
                     /><br></br>
                     <input 
                     type='date'
                     placeholder='DEM'
+                    onFocus={(e) =>this.showInfo('dem',e)}
                     /><br></br>
                     <input 
-                    value={this.state.ddmt}
+                    value={this.state.medicament.dateDarretOuModificationDuTraitement}
                     name='ddmt'
                     type='date'
                     onChange={this.handlchange}
                     placeholder='DDMT'
+                    onFocus={(e) =>this.showInfo('ddmt',e)}
                     /><br></br>
-                    <button id="btn">Submit</button>
-           </form>
+            </form>
                 ))}
         </section>
         </div>
@@ -131,3 +178,33 @@ class PharmacoTool extends React.Component{
     }
 }
 export default PharmacoTool;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
