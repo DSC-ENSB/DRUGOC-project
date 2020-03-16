@@ -1,13 +1,5 @@
-import json
-#import sys  
-
 def CriteresChronologiques(obj): 
-    
-    #path = sys.argv[1]    
-    #with open(path, 'r') as jsonFile:
-    #    data = jsonFile.read()
-    #obj = json.loads(data)
-    
+     
     DAEI = obj["delaiDapparitionCritereChrono"] 
    
     EEI = obj["evolutionDeffet"]
@@ -15,8 +7,6 @@ def CriteresChronologiques(obj):
     R = obj["reAdministration"]
 
     CC = ""
-    
-    #DAEI, EEI, R sont obtenus à partir json file
     
     if EEI == 0:
         #print("Evolution de l'effet: <<Suggestive>>") 
@@ -64,18 +54,4 @@ def CriteresChronologiques(obj):
    
     return CC
     
-if __name__ == '__main__':
-
-    path = 'dataa.json'
-    
-    with open(path, 'r') as f:
-        data = f.read()
-    obj = json.loads(data)
-
-    print(obj)
-
-    print(CriteresChronologiques(obj))
-
-
-
 

@@ -1,6 +1,5 @@
 def criteresSemiologiques(medicament, obj):
 
-    
     SCPC = obj["critereSemiologiqueCliniqueOuParaclinique"]
     
     ACNM = obj["autreCauseNonMedicamenteuse"]

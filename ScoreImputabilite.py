@@ -1,16 +1,12 @@
 import CriteresChrono
 import CriteresSemio
-#import traitementChronologique
 
 def ScoreImputabilite(medicament, data_json):
     
     Cc = CriteresChrono.CriteresChronologiques(data_json) 
     
     Cs = CriteresSemio.criteresSemiologiques(medicament, data_json)
-    
-    #Cs=str(Cs)
-    #Cc=str(Cc)
-    
+
     SI=Cc+Cs
         
     if SI == "C1S1":
