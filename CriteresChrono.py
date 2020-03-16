@@ -64,17 +64,6 @@ def CriteresChronologiques(obj):
    
     return CC
     
-if __name__ == '__main__':
-
-    path = 'dataa.json'
-    
-    with open(path, 'r') as f:
-        data = f.read()
-    obj = json.loads(data)
-
-    print(obj)
-
-    print(CriteresChronologiques(obj))
 
 
 
