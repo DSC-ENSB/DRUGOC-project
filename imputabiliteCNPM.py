@@ -51,18 +51,5 @@ def imputabiliteProcess(data_json):
                    "scoreDeLimputabiliteExtrinseque" : scoreExtrinseque
                 }
             )
-            # append le premier médicament avec l'ensemble des effets indisérables, ensuite le deuxième etc ...
 
-    return results
- 
-
-
-
-
-
-
-
-
-
-
-
+return results

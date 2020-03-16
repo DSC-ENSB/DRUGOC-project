@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response #jsonify
+from flask import Flask, request, make_response 
 from imputabiliteCNPM import imputabiliteProcess
 from json import dumps
 
@@ -17,4 +17,4 @@ def api_json():
 
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+app.run(debug=True) 

@@ -95,4 +95,4 @@ def pub_med_parser(drug, side_effect):
 		return True
 	else:
 		print("0 résultats trouvés")
-		return False
+return False
