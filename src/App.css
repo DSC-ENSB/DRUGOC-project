@@ -234,45 +234,36 @@ svg{
   flex-direction:column ;
   flex-wrap: wrap;
 }
-/* #pharmatoolin{
-  max-width: 350px;
-  margin: 20px 0 0 auto;
-  text-align: center; 
-  box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);
-  border-radius: 8px;
-  padding: 0 50px;
-} */
-.meds-name{
-  overflow-y: auto ;
-  max-width: 510px; 
-  border: 1px solid #dde2e7;
-  border-radius:8px;
-  text-align: center;
-  height: 45%;  
-  position: relative;
-  margin-bottom: 30px;
-  margin-top: 20px;
-  box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);
-}
-.meds-info{
+.pharmatoolin{
   max-width: 350px;
   text-align: center; 
   margin-bottom: 20px !important;
-  box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);
+  /* box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15); */  
   border-radius: 8px;
+  border:1px solid #ececec;
   padding: 0 50px;
   position: absolute;
   top: 20px;  
   right: 0;
   z-index: 1;
-}
-.side-effects{
-  max-width: 510px; 
+} 
+.box{
+  max-width: 350px; 
   border: 1px solid #dde2e7;
   border-radius:8px;
   text-align: center;
+  height: 45%; 
   box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);
-  height: 45%;
+}
+.meds-name{
+  overflow-y: auto ;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  
+}
+.side-effects{
+  padding: 0 50px;
 }
 .pharmaInput{
   color: black;
@@ -307,7 +298,7 @@ textarea{
 }
 .data-details{
   background-color: #222324;
-  color: #1fb5cf;
+  color:white;
   position: absolute;
   height: 45px;
   min-width: 350px;
@@ -319,4 +310,7 @@ textarea{
   text-align:center;
   line-height: 45px;
   border-radius: 8px;
+}
+.show{
+  display: block !important;
 }
