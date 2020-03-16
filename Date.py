@@ -27,4 +27,3 @@ def parametreB(DDMT, DEM):
 
 
 
-

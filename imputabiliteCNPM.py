@@ -3,20 +3,8 @@ import ScoreImputabilite
 import CriteresChrono
 import CriteresSemio
 import Parser 
-#import ImputabiliteExtrinseque
-#import Sauvegarde
-#import sys  
-#import json 
 
 def imputabiliteProcess(data_json):
-
-    #path_json = sys.argv[1]
-    #path_json = "C:/Users/lenovo/Desktop/CNPM_OPT/data.json"
-    
-    #with open(data_json, 'r') as myFile:
-    #    data = myFile.read()
-
-    #obj = json.loads(data)
 
     results = []
     
@@ -39,7 +27,6 @@ def imputabiliteProcess(data_json):
                 data_json
             )
             
-            #criteres chrono + critères sémio 
             if Parser.ansm_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]):
                 scoreExtrinseque = "B4"
                 
@@ -54,7 +41,7 @@ def imputabiliteProcess(data_json):
 
             results.append(
                 {
-                   "interaction" : "imputabilité entre le médicament N° "+ str(j+1) + " et l'effet indisérable N° " + str(i+1),
+                   "interaction" : "imputabilite entre le medicament Num "+ str(i+1) + " et l'effet indiserable Num " + str(j+1),
                    "delaiA" : delaiA,
                    "delaiB" : delaiB,
                    "scoreInformativite" : SI,
@@ -79,39 +66,3 @@ def imputabiliteProcess(data_json):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-   
-   
-    #medicament=str(input("Veuillez introduire le médicament à imputer: "))
-    #medicament=medicament.lower()
-    #medicament=medicament.replace(str(medicament[0]),str(medicament[0]).capitalize())
-    #EI=str(input("Veuillez introduire l'effet indésirable: "))
-    #EI=EI.lower() 
-    """SI, DélaiA, DélaiB =ScoreInformativite.ScoreInformativité() 
-    print("Le score d'informativité est: ", SI)
-    Score=ScoreImputabilite.ScoreImputabilité(medicament, EI)
-    print("Le score d'imputabilité intrinsèque est: ", Score)
-    IE=ImputabiliteExtrinseque.ImputabulitéExtrinsèque()
-    Sauvegarde.Sauvegarde(medicament, EI, DélaiA, DélaiB, SI, Score, IE, nomM, prenomM, ageM)"""
-    
-#if __name__=='__main__':
-#    Menu()

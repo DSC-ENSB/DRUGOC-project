@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# !/usr/bin/python
+#!/usr/bin/python
 
 from itertools import islice 
 import requests
@@ -10,18 +10,21 @@ from Bio import Medline
 def RE_extractor(drug):
 	
 	with open("CIS.txt",  encoding="ISO-8859-1") as f:
-		res = []
+		cis = []
 		for line in islice(f, 0, None): 
 			l=line.split("\t")
-			if drug.upper() in l[1] and l[-2] not in res:
-				res.append([l[-2],l[1]]) 
-		#we should transform the CIS.txt into UTF-8 encoding
-		#show the list of drugs found l[1] and let the user choose whixh one
-		#get the cis code of this drug l[-2]
-	return res #cis
+			if drug.upper() in l[1].upper() and l[-2] not in cis:
+				cis.append([l[-2],l[1]]) 
+		#If len(res) > 1:
+			#show the list of drugs found l[1] and let the user choose which one
+			#get the cis code of this drug l[-2]
+		#else :
+			#res = res[0] #so cis will be str
+
+	return cis
 
 def ansm_parser(drug, side_effect):
-	
+
 	cis = RE_extractor(drug)
 	quote_page = "http://agence-prd.ansm.sante.fr/php/ecodex/rcp/R"+ str(cis[0][0]) +".htm"
 	page = requests.get(quote_page)
@@ -35,9 +38,8 @@ def ansm_parser(drug, side_effect):
 		EI.append(str(paragraph))
 
 	for ei in EI:
-		if side_effect in ei:
-			return True
-		#b4
+		if side_effect.title() in ei:
+			return True 
 	return False	
 
 def ID_extractor(side_effect):
@@ -52,14 +54,13 @@ def ID_extractor(side_effect):
 					res.append(l[-2])
 	if len(res) == 1:
 		return res[1]
-	
 	elif len(res) > 1:
 		pass #show the side effects and let the user choose
-		return res[1] 
-
+		return res[1]
 	else:
 		print("0 résultats trouvés")
 		return str(0)
+	
 
 def sider_parser(drug, side_effect):
 
@@ -71,7 +72,7 @@ def sider_parser(drug, side_effect):
 	a = soup.find_all('a')
 	for i in a:
 		if drug in i:
-			return True #b3
+			return True
 	return False	
 
 def pub_med_parser(drug, side_effect):
@@ -91,7 +92,7 @@ def pub_med_parser(drug, side_effect):
 			print("title:", record.get("TI", "?"))
 			print("authors:", record.get("AU", "?"))
 			print("source:", record.get("SO", "?"))
-		return True ##b2
+		return True
 	else:
 		print("0 résultats trouvés")
-		return False #b1 
+		return False

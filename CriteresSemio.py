@@ -1,7 +1,3 @@
-import MeSH
-import DrugBank
-#import sys, json
-
 def criteresSemiologiques(medicament, obj):
 
     

@@ -1,14 +1,8 @@
 import CriteresChrono
 import CriteresSemio
 #import traitementChronologique
-import CritèresChronologiquesNonSpecifie
 
 def ScoreImputabilite(medicament, data_json):
-    #Liste_EI=['atteintes hépatiques', 'neutropènie', 'thrombopènie', 'anémie hémolytique aiguë immuno-allergique', 'purpura vasculaire', 'phototoxicité médicamenteuse', 'photoallergie médicamenteuse', 'insuffisance rénale aiguë', 'pneumopathie interstitielle']
-    #for i in range(0,len(Liste_EI)):
-        #if EI == Liste_EI[i]:
-            #if DélaiA == 0:
-                #DAEI=CritèresChronologiquesNonSpecifie.CCNS(EI, DélaiA)
     
     Cc = CriteresChrono.CriteresChronologiques(data_json) 
     
