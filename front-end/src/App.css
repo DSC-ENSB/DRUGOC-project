@@ -1,0 +1,338 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  height: 100vh;
+  font-family: 'Montserrat Medium' !important;
+  font-size: 1rem;
+  color: #222324;
+  line-height: 1.6;
+  background-image: linear-gradient(145deg, rgba(19, 177, 205, 0.95) 0%, rgba(152, 119, 234, 0.95) 100%);
+  background-repeat: repeat-x;
+}
+.wrapper{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.flex-nav{
+  height: 88px;
+  align-items: center;
+  display: flex;
+  padding: 1.75rem;
+  justify-content: space-between;
+  position: relative;
+  z-index: 9999;
+}
+.flex-nav-left, .flex-nav-right{
+  color:#fff !important;
+}
+/* user interaction style */
+input{
+  height: 3.25rem;
+  border: none;
+  border-bottom: 0.625px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  margin: 20px 0 !important;
+  transition: cubic-bezier(.55,.06,.68,.19);
+  color: white;
+}
+input:focus{
+  border-bottom : 0.625px solid rgba(0, 0, 0, 1);
+}
+#btn{
+  background-color: #1fb5cf;
+  border: none;
+  border-radius: 50px!important;
+  height: 50px;
+  margin: 20px 0 !important;
+  min-width: 100%;
+  color: white  !important;
+  transition: cubic-bezier(.55,.06,.68,.19);
+}
+.btn{
+  background-color: white !important;
+  border: none;
+  border-radius: 50px!important;
+  height: 50px;
+  margin: 20px 0 !important;
+  min-width: 100%;
+  color: black  !important;
+  transition: cubic-bezier(.55,.06,.68,.19);
+}
+/* The of User interaction style  */
+.flex-left-and-right{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50px 0;
+  line-height: 2;
+  color: white;
+}
+.flex-signup{
+  max-width: 350px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 50px 30px;
+  border-radius: 8px;
+  /* animation: faded 5s linear 2s infinite alternate; */
+}
+.flex-left-and-right::after {
+    position: absolute;
+    top: 7rem;
+    left: 4.25rem;
+    width: 18.75rem;
+    height: 10.9375rem;
+    border: .625rem solid;
+    border-top-color: currentcolor;
+    border-right-color: currentcolor;
+    border-bottom-color: currentcolor;
+    border-left-color: currentcolor;
+    border-color: rgba(255, 255, 255, 0.2);
+    content: " ";
+}
+.flex-left-and-right::before{
+position: absolute;
+left: 32rem;
+top: 20rem;
+width: 9.375rem;
+height: 9.375rem;
+border: .625rem solid;
+  border-top-color: currentcolor;
+  border-right-color: currentcolor;
+  border-bottom-color: currentcolor;
+  border-left-color: currentcolor;
+z-index: -1;
+border-color: rgba(108, 184, 237, 0.9);
+content: " ";
+}
+/* Home Style */
+.isActive{
+  display: none;
+}
+.isNotActive{
+  display:block;
+}
+/* End Home Style */
+.log-in{
+  max-width: 350px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 50px 25px;
+  color: #fff;
+  border-radius: 8px;
+  position: relative;
+  z-index: 999;
+  /* animation: faded 4s linear 0s 1; */
+}
+#log-btn{
+  background-color: transparent !important;
+  color: white;
+  border-bottom: 0.625px solid rgba(255, 255, 255, 0) !important;
+}
+/*
+#log-btn:hover{
+  border-right: 0.625px solid rgba(255, 255, 255, 0.7) !important;
+}*/
+
+/* animation */
+@keyframes faded{
+  from{
+    background-color :rgba(255, 255, 255, 0);
+  }
+  to{
+    background-color :rgba(255, 255, 255, 0.1);
+  }
+}
+/* Display Control Class  */
+/* control Classes */
+.hide{
+  display: none;
+}
+.upper{
+  position: relative;
+  z-index: 9999;
+}
+/* Media Query */
+@media screen and (max-width: 480px){
+.flex-left-and-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    line-height: 2;
+    color: white;
+  }
+}
+/* Styling Profile Component */
+.Profile{
+  height: 100vh;
+}
+.side-bar{
+  position: fixed;
+  height: 100vh;
+  top:0;
+  left: 0;
+  background-color: black;
+  width: 73px;
+  color: #fff !important;
+}
+.Intro{
+  text-align: justify;
+  line-height: 2;
+  max-width: 600px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.raised{
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+.child{
+  position: fixed;
+  left:18px;
+}
+.st_child{
+  top:15px;
+  color:#1fb5cf;
+}
+.lst_child{
+  color:#1fb5cf;
+  transform: rotate(-180deg);
+  bottom: 10px;
+}
+ul{
+  text-align: center;
+  color: white;
+  list-style: none;
+  transition: all .5s linear;
+  cursor: pointer;
+  position: relative;
+  top:50%;
+  transform: translate(0,-70%);
+}
+ul li{
+  margin-bottom:40px;
+}
+ul li:hover{
+  color:#1fb5cf;
+}
+svg{
+  font-size:30px;
+}
+/* PharmacoTool Style */
+.pharma{
+  display: flex;
+  flex-direction:column ;
+  flex-wrap: wrap;
+}
+.pharmatoolin{
+  box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);  
+  border-radius: 8px;
+  border:1px solid #ececec;
+  max-width: 350px;
+  background-color: white;
+  text-align: center; 
+  margin-bottom: 20px !important;
+  padding: 0 50px;
+  position: absolute;
+  top: 20px;  
+  right: 0;
+  z-index: 1;
+  display: none;
+} 
+.box{
+  max-width: 350px; 
+  border: 1px solid #dde2e7;
+  border-radius:8px;
+  text-align: center;
+  height: 45%; 
+  box-shadow: -5px -5px 30px 4px rgba(0,0,0,0.1), 10px 10px 30px 4px rgba(45,78,255,0.15);
+}
+.meds-name{
+  overflow-y: auto ;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  
+}
+.side-effects{
+  padding: 0 50px;
+}
+.pharmaInput{
+  color: black;
+  border: 1px solid #ececec;
+  transition: all .6s linear;
+  border-radius: 8px;
+}
+.pharmaInput:focus{
+  border: 1px solid #1fb5cf;
+}
+.med-add-button{
+  background-color: #1fb5cf;
+  border: none;
+  height: 50px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px;
+  width: 50px;
+  border-radius: 50%;
+  color: white !important;
+  transition: cubic-bezier(.55,.06,.68,.19);
+  z-index: 200;
+}
+input[type="date"]{
+  color: #222324;
+}
+textarea{
+  height: 3.25rem !important;
+  background-color: white;
+  padding-top: 0.8125rem;
+}
+
+.data-details{
+  background-color: #222324;
+  color:white;
+  position: absolute;
+  height: 45px;
+  min-width: 350px;
+  top:5%;
+  display: none;
+  left: 50%;
+  transform: translate(-50%,-5%);
+  z-index: 9999;
+  text-align:center;
+  font-size: 14px;
+  line-height: 45px;
+  border-radius: 8px;
+}
+/* Criteres Chronology */
+.criter-chrono{
+  min-width: 300px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 10px;
+  height: 60%;
+}
+select{
+  width: 9.5rem;
+  margin-bottom: 15px !important;
+}
+/* Toggeler */
+.show{
+  display: block !important;
+}

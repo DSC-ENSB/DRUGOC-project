@@ -1,0 +1,31 @@
+{
+    "medicament": [{
+        "DCI": "amoxicilline", 
+        "nombreDeLot": 4017,
+        "posologie": "300 mg nombre d'administration par jour",
+        "dateDapparitionDeLeffetIndiserable": "2019-01-15 00:00", 
+        "dateDexpositionAuMedicament": "2019-01-10 00:00",
+        "dateDarretOuModificationDuTraitement": "2019-01-20 00:00",
+        "VI": "voie orale"
+    },
+    {
+        "DCI": "ALPRAZOLAM", 
+        "nombreDeLot": 4017,
+        "posologie": "300 mg nombre d'administration par jour",
+        "dateDapparitionDeLeffetIndiserable": "2019-01-15 00:00", 
+        "dateDexpositionAuMedicament": "2019-01-10 00:00",
+        "dateDarretOuModificationDuTraitement": "2019-01-20 00:00",
+        "VI": "voie orale"
+    }],
+    "effetIndiserable": [
+        "Vomissement",
+        "Bronchitis"
+    ], 
+    
+    "delaiDapparitionCritereChrono": 1,
+    "evolutionDeffet": 5,
+    "reAdministration": 2, 
+    "critereSemiologiqueCliniqueOuParaclinique": 0 ,
+    "autreCauseNonMedicamenteuse": 0, 
+    "examenComplementaire": 0
+}
