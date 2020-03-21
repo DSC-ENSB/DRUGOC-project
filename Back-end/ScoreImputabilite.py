@@ -30,4 +30,4 @@ def ScoreImputabilite(medicament, data_json):
     else:
         score="I0"
     
-return score
+    return score

@@ -1,6 +1,7 @@
 import Date
 
 def ScoreInformativite(DAEI, DDMT, DEM):
+    
     if DAEI: 
         delaiA = Date.parametreA(DAEI, DEM)
 
@@ -22,4 +23,4 @@ def ScoreInformativite(DAEI, DDMT, DEM):
     else:
         SI = "NIO"
         
-return (delaiA, delaiB, SI)
+    return (delaiA, delaiB, SI)

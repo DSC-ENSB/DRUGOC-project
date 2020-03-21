@@ -1,7 +1,7 @@
 {
     "medicament": [{
         "DCI": "amoxicilline", 
-        "nombreDeLot": 4017,
+        "numeroDeLot": 4017,
         "posologie": "300 mg nombre d'administration par jour",
         "dateDapparitionDeLeffetIndiserable": "2019-01-15 00:00", 
         "dateDexpositionAuMedicament": "2019-01-10 00:00",
@@ -10,7 +10,7 @@
     },
     {
         "DCI": "ALPRAZOLAM", 
-        "nombreDeLot": 4017,
+        "numeroDeLot": 4017,
         "posologie": "300 mg nombre d'administration par jour",
         "dateDapparitionDeLeffetIndiserable": "2019-01-15 00:00", 
         "dateDexpositionAuMedicament": "2019-01-10 00:00",

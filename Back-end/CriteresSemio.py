@@ -36,4 +36,4 @@ def criteresSemiologiques(medicament, obj):
         else:
             CS = "S1" if (ACNM != 3) else "S0" 
     
-return CS
+    return CS

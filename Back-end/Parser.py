@@ -7,40 +7,43 @@ from bs4 import BeautifulSoup
 from Bio import Entrez
 from Bio import Medline
 
-def RE_extractor(drug):
+def RE_extractor(med):
 	
 	with open("CIS.txt",  encoding="ISO-8859-1") as f:
 		cis = []
 		for line in islice(f, 0, None): 
-			l=line.split("\t")
-			if drug.upper() in l[1].upper() and l[-2] not in cis:
-				cis.append([l[-2],l[1]]) 
-		#If len(res) > 1:
-			#show the list of drugs found l[1] and let the user choose which one
-			#get the cis code of this drug l[-2]
-		#else :
-			#res = res[0] #so cis will be str
+			l = line.split("\t")
+			try:
+				if med in l[1] and l[-2] not in cis and len(l[-2]) != 0:
+					cis.append(l[-2])
+			except:
+				pass
 
 	return cis
 
-def ansm_parser(drug, side_effect):
+def ansm_parser(med, side_effect): 
 
-	cis = RE_extractor(drug)
-	quote_page = "http://agence-prd.ansm.sante.fr/php/ecodex/rcp/R"+ str(cis[0][0]) +".htm"
-	page = requests.get(quote_page)
-	src = page.content
-	soup = BeautifulSoup(src, 'html.parser')
-	tables = soup.find("table", attrs={"class": "AmmCorpsTexteTable"})
-	EI = []
-	for row in tables.find_all('tr'):
-		cells = row.find('td')
-		paragraph = cells.find('p')
-		EI.append(str(paragraph))
+	cis = RE_extractor(med)
+	if len(cis) ==  1:
+		quote_page = "http://agence-prd.ansm.sante.fr/php/ecodex/rcp/R"+ str(cis[0]) +".htm"
+		page = requests.get(quote_page)
+		src = page.content
+		soup = BeautifulSoup(src, 'html.parser')
+		tables = soup.find("table", attrs={"class": "AmmCorpsTexteTable"})
+		EI = []
+		
+		for row in tables.find_all('tr'):
+			cells = row.find('td')
+			paragraph = cells.find('p')
+			EI.append(str(paragraph))
 
-	for ei in EI:
-		if side_effect.title() in ei:
-			return True 
-	return False	
+		for ei in EI:
+			if side_effect.title() in ei:
+				return True 
+		return False
+	else:
+		# "Le médicament n'a pas un RCP sur le site de l'agence nationale de santé"	
+		return False
 
 def ID_extractor(side_effect):
 	
@@ -54,18 +57,14 @@ def ID_extractor(side_effect):
 					res.append(l[-2])
 	if len(res) == 1:
 		return res[1]
-	elif len(res) > 1:
-		pass #show the side effects and let the user choose
-		return res[1]
 	else:
-		print("0 résultats trouvés")
 		return str(0)
 	
-
 def sider_parser(drug, side_effect):
 
 	ID = ID_extractor(side_effect.title())
 	quote_page = "http://sideeffects.embl.de/se/"+ ID
+	print(ID)
 	page = requests.get(quote_page)
 	src = page.content
 	soup = BeautifulSoup(src, 'html.parser')
@@ -95,4 +94,4 @@ def pub_med_parser(drug, side_effect):
 		return True
 	else:
 		print("0 résultats trouvés")
-return False
+		return False

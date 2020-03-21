@@ -52,4 +52,4 @@ def CriteresChronologiques(obj):
     elif DAEI == 3:
         CC = "C0" if EEI != 3 else "C1"
    
-return CC
+    return CC
