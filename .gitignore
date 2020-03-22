@@ -24,3 +24,5 @@ yarn-debug.log*
 *.json
 *.gz
 yarn-error.log*
+*.txt
+node_modules
