@@ -25,7 +25,7 @@ def RE_extractor(med):
 def ansm_parser(med, side_effect): 
 
 	cis = RE_extractor(med)
-	if len(cis) ==  1:
+	if len(cis) ==  1 or len(cis) > 1:
 		quote_page = "http://agence-prd.ansm.sante.fr/php/ecodex/rcp/R"+ str(cis[0]) +".htm"
 		page = requests.get(quote_page)
 		src = page.content
@@ -52,41 +52,41 @@ def ID_extractor(side_effect):
 		res = []
 		for line in islice(f, 0, None): 
 			l=line.split("\t")
-			if l[3] == "PT":
-				if side_effect in l[-1] and l[-2] not in res :
-					res.append(l[-1])
-					res.append(l[-2])
-	if len(res) == 1:
-		return res[1]
-	else:
-		return str(0)
+			#if l[3] == "PT":
+			l[-1] = l[-1].replace('\n', '')
+			if side_effect.title() == l[-1].title() and l[-2] not in res :
+				res.append(l[-2])
+
+	return res[0]
 	
 def sider_parser(drug, side_effect):
 
-	with open("side_effects.tsv.ods", "r", encoding="ISO-8859-1") as f:
+	with open("side_effects.tsv", "r", encoding="ISO-8859-1") as f:
 		for line in islice(f, 0, None): 
 			l = line.split("\t")
-			if side_effect == l[-1]:
+			l[1] = l[1].replace('\n', '')
+			if side_effect == l[1]:
 				side_effect = l[0]
+
 	ID = ID_extractor(side_effect.title())
-	quote_page = "http://sideeffects.embl.de/se/"+ ID
-	page = requests.get(quote_page)
-	src = page.content
-	soup = BeautifulSoup(src, 'html.parser')
-	a = soup.find_all('a')
-	drug_eng = Drugs.drugs(drug)
-	ans = 0
-	if len(drug_eng) == 1:
-		for i in a:
-			if drug_eng.lower() in i.lower():
-				ans += 1	
-	elif len(drug_eng) > 1:
-		for i in range(len(drug_eng)):
-			for j in a:
-				if drug_eng[i].lower() in i.lower():
-					ans += 1
-	if ans > 0:
-		return True
+	if len(ID) == 1:
+		quote_page = "http://sideeffects.embl.de/se/"+ ID
+		page = requests.get(quote_page)
+		src = page.content
+		soup = BeautifulSoup(src, 'html.parser')
+		a = soup.find_all('a')
+		drug_eng = Drugs.drugs(drug)
+		ans = 0
+		
+		if len(drug_eng) > 0:
+			for i in range(len(drug_eng)):
+				for j in a:
+					if drug_eng[i].lower() in j.get_text().lower():
+						ans += 1	
+		if ans > 0:
+			return True
+		else:
+			return False
 	else:
 		return False
 
@@ -109,5 +109,4 @@ def pub_med_parser(drug, side_effect):
 			print("source:", record.get("SO", "?"))
 		return True
 	else:
-		print("0 résultats trouvés")
 		return False
