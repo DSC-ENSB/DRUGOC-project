@@ -6,6 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 from Bio import Entrez
 from Bio import Medline
+import Drugs
 
 def RE_extractor(med):
 	
@@ -47,7 +48,7 @@ def ansm_parser(med, side_effect):
 
 def ID_extractor(side_effect):
 	
-	with open("meddra_all_se.tsv") as f:
+	with open("meddra_all_se.tsv", "r", encoding="ISO-8859-1") as f:
 		res = []
 		for line in islice(f, 0, None): 
 			l=line.split("\t")
@@ -62,17 +63,32 @@ def ID_extractor(side_effect):
 	
 def sider_parser(drug, side_effect):
 
+	with open("side_effects.tsv.ods", "r", encoding="ISO-8859-1") as f:
+		for line in islice(f, 0, None): 
+			l = line.split("\t")
+			if side_effect == l[-1]:
+				side_effect = l[0]
 	ID = ID_extractor(side_effect.title())
 	quote_page = "http://sideeffects.embl.de/se/"+ ID
-	print(ID)
 	page = requests.get(quote_page)
 	src = page.content
 	soup = BeautifulSoup(src, 'html.parser')
 	a = soup.find_all('a')
-	for i in a:
-		if drug in i:
-			return True
-	return False	
+	drug_eng = Drugs.drugs(drug)
+	ans = 0
+	if len(drug_eng) == 1:
+		for i in a:
+			if drug_eng.lower() in i.lower():
+				ans += 1	
+	elif len(drug_eng) > 1:
+		for i in range(len(drug_eng)):
+			for j in a:
+				if drug_eng[i].lower() in i.lower():
+					ans += 1
+	if ans > 0:
+		return True
+	else:
+		return False
 
 def pub_med_parser(drug, side_effect):
 	
