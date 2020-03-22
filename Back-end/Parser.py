@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from Bio import Entrez
 from Bio import Medline
 import Drugs
+import Sideeffect
 
 def RE_extractor(med):
 	
@@ -63,13 +64,7 @@ def ID_extractor(side_effect):
 	
 def sider_parser(drug, side_effect):
 
-	with open("side_effects.tsv", "r", encoding="ISO-8859-1") as f:
-		for line in islice(f, 0, None): 
-			l = line.split("\t")
-			l[1] = l[1].replace('\n', '')
-			if side_effect == l[1]:
-				side_effect = l[0]
-
+	side_effect = Sideeffect.sideEffect(side_effect)
 	ID = ID_extractor(side_effect.title())
 	if ID != 0:
 		quote_page = "http://sideeffects.embl.de/se/"+ ID
@@ -93,13 +88,16 @@ def sider_parser(drug, side_effect):
 		return False
 
 def pub_med_parser(drug, side_effect):
-	
+
+	drug_eng = Drugs.drugs(drug)
+	side_effect = Sideeffect.sideEffect(side_effect)
 	Entrez.email = "cnpm@cnpm.org.dz"
 	terms = "(("+drug+"[Title]) AND "+side_effect+"[Title/Abstract])" 
 	handle= Entrez.esearch(db = "pubmed", term = terms, rettype = "medline", retmode = "text") 
 	record = Entrez.read(handle)
 	handle.close()
 	if record["Count"] != "0":
+		"""
 		idlist = record["IdList"]
 		handle2 = Entrez.efetch(db="pubmed", id=idlist, rettype="medline",retmode="text")
 		records = Medline.parse(handle2)
@@ -108,7 +106,7 @@ def pub_med_parser(drug, side_effect):
 		for record in records:
 			print("title:", record.get("TI", "?"))
 			print("authors:", record.get("AU", "?"))
-			print("source:", record.get("SO", "?"))
+			print("source:", record.get("SO", "?"))"""
 		return True
 	else:
 		return False
