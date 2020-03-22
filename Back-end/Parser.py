@@ -56,8 +56,10 @@ def ID_extractor(side_effect):
 			l[-1] = l[-1].replace('\n', '')
 			if side_effect.title() == l[-1].title() and l[-2] not in res :
 				res.append(l[-2])
-
-	return res[0]
+	if len(res) == 1:
+		return res[0]
+	else:
+		return 0
 	
 def sider_parser(drug, side_effect):
 
@@ -69,7 +71,7 @@ def sider_parser(drug, side_effect):
 				side_effect = l[0]
 
 	ID = ID_extractor(side_effect.title())
-	if len(ID) == 1:
+	if ID != 0:
 		quote_page = "http://sideeffects.embl.de/se/"+ ID
 		page = requests.get(quote_page)
 		src = page.content
