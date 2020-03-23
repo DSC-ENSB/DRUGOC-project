@@ -88,25 +88,31 @@ def sider_parser(drug, side_effect):
 		return False
 
 def pub_med_parser(drug, side_effect):
-
+	
 	drug_eng = Drugs.drugs(drug)
 	side_effect = Sideeffect.sideEffect(side_effect)
 	Entrez.email = "cnpm@cnpm.org.dz"
-	terms = "(("+drug+"[Title]) AND "+side_effect+"[Title/Abstract])" 
+	terms = "(("+drug_eng[0]+"[Title]) AND "+side_effect+"[Title/Abstract])" 
 	handle= Entrez.esearch(db = "pubmed", term = terms, rettype = "medline", retmode = "text") 
 	record = Entrez.read(handle)
 	handle.close()
-	if record["Count"] != "0":
-		"""
-		idlist = record["IdList"]
-		handle2 = Entrez.efetch(db="pubmed", id=idlist, rettype="medline",retmode="text")
-		records = Medline.parse(handle2)
-		records = list(records)
 
-		for record in records:
-			print("title:", record.get("TI", "?"))
-			print("authors:", record.get("AU", "?"))
-			print("source:", record.get("SO", "?"))"""
+	idlist = record["IdList"]
+	handle2 = Entrez.efetch(db="pubmed", id=idlist, rettype="medline",retmode="text")
+	records = Medline.parse(handle2)
+	records = list(records)
+
+	var = 0
+	titres = []
+	for record in records:
+		titre = record.get("TI", "?")
+		titres.append(titre)
+
+	for i in titres:
+		if drug_eng[0] in i and side_effect in i :
+			var += 1
+
+	if var != 0:
 		return True
 	else:
 		return False
