@@ -27,13 +27,13 @@ def imputabiliteProcess(data_json):
             data_json
         )
         
-        if Parser.ansm_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]):
+        if Parser.ansm_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]["name"]):
             scoreExtrinseque = "B4"
             
-        elif Parser.sider_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]):
+        elif Parser.sider_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]["name"]):
             scoreExtrinseque = "B3" 
 
-        elif Parser.pub_med_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]):
+        elif Parser.pub_med_parser(data_json["medicament"][i]["DCI"], data_json["effetIndiserable"][j]["name"]):
            scoreExtrinseque = "B2"
         
         else:

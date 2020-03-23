@@ -1,5 +1,5 @@
 from flask import Flask, request, make_response 
-from imputabiliteCNPM import imputabiliteProcess
+from imputabiliteDrugOC import imputabiliteProcess
 from json import dumps
 
 app = Flask(__name__)

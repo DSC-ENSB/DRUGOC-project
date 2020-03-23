@@ -1,6 +1,6 @@
 import datetime
 
-datetimeFormat = "%Y-%m-%d %H:%M"
+datetimeFormat = "%Y-%m-%d"
 
 def parametreA(DAEI, DEM):
     difference = datetime.datetime.strptime(DAEI, datetimeFormat) - datetime.datetime.strptime(DEM, datetimeFormat)
