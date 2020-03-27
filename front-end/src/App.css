@@ -336,3 +336,41 @@ select{
 .show{
   display: block !important;
 }
+/* Adabte TypeHead CLasses */
+.rbt{
+  border: none !important;
+}
+.rbt-input-multi{
+  height: 40% !important;
+}
+.remove-icone{
+  position: relative;
+top: 30px;
+right: -138px;
+z-index: 1;
+}
+.wait-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1001;
+  width: 380px;
+  height: 90px;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  border-radius: 8px;
+  text-align: center;
+  line-height:90px;
+  font-size: 1.2rem;
+  border: 1px solid #ececec;
+  font-family: GT walsheim pro;
+}
+.wait-layer{
+position: fixed;
+top: 0;
+left: 0;
+background: #80808099;
+z-index: 1000;
+height: 100%;
+width: 100% !important;
+}
