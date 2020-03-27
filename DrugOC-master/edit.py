@@ -9,7 +9,7 @@ with open(file,encoding="UTF-8")as f:
     for line in islice(f, 0, None): 
         l=line.split("\t")
         i = i + 1
-        data.append(l[-1])
+        data.append({"name" : l[-1]})
         if i ==33092:
             break
 
