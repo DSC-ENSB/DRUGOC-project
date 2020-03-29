@@ -288,9 +288,13 @@ svg{
   padding: 10px;
   width: 50px;
   border-radius: 50%;
+  cursor: pointer;
   color: white !important;
-  transition: cubic-bezier(.55,.06,.68,.19);
+  transition: all .5s cubic-bezier(.55,.06,.68,.19);
   z-index: 200;
+}
+.med-add-button:hover{
+  background-color: #116877;
 }
 input[type="date"]{
   color: #222324;
@@ -344,7 +348,7 @@ select{
   height: 40% !important;
 }
 .remove-icone{
-  position: relative;
+position: relative;
 top: 30px;
 right: -138px;
 z-index: 1;
@@ -353,7 +357,7 @@ z-index: 1;
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 1001;
+  z-index: 2001;
   width: 380px;
   height: 90px;
   transform: translate(-50%,-50%);
@@ -369,8 +373,20 @@ z-index: 1;
 position: fixed;
 top: 0;
 left: 0;
-background: #80808099;
-z-index: 1000;
+background: #000000b3;
+z-index: 2000;
 height: 100%;
 width: 100% !important;
+}
+.response{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1050;
+  background-color: #222324;
+  color: white;
+  overflow-x: auto;
+  padding: 10px 10px;
 }
