@@ -9,8 +9,6 @@ import DCIData from '../data/dci_json'
 class PharmacoTool extends React.Component{
     constructor(props){
         super(props)
-        this.clickNumber = 0
-        this.details =""
         this.state = { 
             medicament:[{
                 DCI : "",
@@ -28,13 +26,18 @@ class PharmacoTool extends React.Component{
             critereSemiologiqueCliniqueOuParaclinique:0,
             autreCauseNonMedicamenteuse:0,
             examenComplementaire:0,  
-            resData : {},
+            resData : [],
             isLoading:false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.addMedicament = this.addMedicament.bind(this)
         this.RemoveMedicament = this.RemoveMedicament.bind(this)
         this.isFocused=this.isFocused.bind(this)
+        this.removeResulte=this.removeResulte.bind(this)
+    }
+    removeResulte(){
+        const resLayer =document.getElementsByClassName('response')[0]
+        resLayer.classList.add('hide')
     }
     handleSubmit(event){
         event.preventDefault()
@@ -54,7 +57,6 @@ class PharmacoTool extends React.Component{
                isLoading:false
                
            })
-           console.log(this.state.resData)
       }).catch((err)=>{console.error(err.message)})
     }
     RemoveMedicament(){
@@ -85,6 +87,7 @@ class PharmacoTool extends React.Component{
         this.setState([...this.state.medicament]);
     }
     isFocused(id){ 
+        console.log(this.state)
         let drugInfo = document.getElementsByClassName('pharmatoolin')
         this.state.medicament.map((x,i)=>{i===id?drugInfo[i].classList.add('show'):drugInfo[i].classList.remove('show')})   
     }
@@ -94,89 +97,53 @@ class PharmacoTool extends React.Component{
             <section className="box criter-chrono">
                 <h6>Critere Chronology</h6>
                 <br></br>
-                <select   
-                value={this.state.delaiDapparitionCritereChrono} 
+                <select value={this.state.delaiDapparitionCritereChrono} 
                 placeholder="--select an option --" 
-                onChange={(event)=>{
-                    this.setState({
-                        delaiDapparitionCritereChrono:event.target.value
-                    })
-                }}
-                >
-                    <option value={1}>one</option>
-                    <option value={2}>two</option>
-                    <option value={3}>tri</option>
+                onChange={(event)=>{this.setState({delaiDapparitionCritereChrono:event.target.value})}}>
+                    <option value={0}>one</option>
+                    <option value={1}>two</option>
+                    <option value={2}>tri</option>
                 </select>
                 <br></br>
                 <select value={this.state.evolutionDeffet}
-                onChange={(event)=>{
-                    this.setState({
-                        evolutionDeffet:event.target.value
-                    })
-                }}>
-                    <option value={1}>Tri</option>
-                    <option value={2}>two</option>
-                    <option value={3}>one</option>
+                onChange={(event)=>{this.setState({evolutionDeffet:event.target.value})}}>
+                    <option value={0}>Tri</option>
+                    <option value={1}>two</option>
+                    <option value={2}>one</option>
                 </select>
                 <br></br>
-                <select 
-                value={this.state.reAdministration}
-                onChange={(event)=>{
-                    this.setState({
-                        reAdministration:event.target.value
-                    })
-                }}
-                >
-                    <option value={1}>One</option>
-                    <option value={2}>two</option>
-                    <option value={3}>tri</option>
+                <select value={this.state.reAdministration}
+                onChange={(event)=>{this.setState({reAdministration:event.target.value})}}>
+                    <option value={0}>One</option>
+                    <option value={1}>two</option>
+                    <option value={2}>tri</option>
                 </select>
                 <br></br>
-                <select
-                value={this.state.critereSemiologiqueCliniqueOuParaclinique}
-                onChange={(event)=>{
-                    this.setState({
-                        critereSemiologiqueCliniqueOuParaclinique:event.target.value
-                    })
-                }}>
-                    <option value={1}>Tri</option>
-                    <option value={2}>two</option>
-                    <option value={3}>one</option>
+                <select value={this.state.critereSemiologiqueCliniqueOuParaclinique}
+                onChange={(event)=>{this.setState({critereSemiologiqueCliniqueOuParaclinique:event.target.value})}}>
+                    <option value={0}>Tri</option>
+                    <option value={1}>two</option>
+                    <option value={2}>one</option>
                 </select>
                 <br></br>
-                <select 
-                value={this.state.autreCauseNonMedicamenteuse}
-                onChange={(event)=>{
-                    this.setState({
-                        autreCauseNonMedicamenteuse:event.target.value
-                    })
-                }}
-                >
-                    <option value={1}>One</option>
-                    <option value={2}>two</option>
-                    <option value={3}>tri</option>
+                <select value={this.state.autreCauseNonMedicamenteuse}
+                onChange={(event)=>{this.setState({autreCauseNonMedicamenteuse:event.target.value})}}>
+                    <option value={0}>One</option>
+                    <option value={1}>two</option>
+                    <option value={2}>tri</option>
                 </select>
                 <br></br>
-                <select 
-                value={this.state.examenComplementaire}
-                onChange={(event)=>{
-                    this.setState({
-                        examenComplementaire:event.target.value
-                    })
-                }}
-                >
-                    <option value={1}>Tri</option>
-                    <option value={2}>two</option>
-                    <option value={3}>one</option>
+                <select value={this.state.examenComplementaire}
+                onChange={(event)=>{this.setState({examenComplementaire:event.target.value})}}>
+                    <option value={0}>Tri</option>
+                    <option value={1}>two</option>
+                    <option value={2}>one</option>
                 </select>
             </section>
-                <div className={!this.state.isLoading?'hide':'show wait-layer'}></div>
-                <div className={!this.state.isLoading?'hide':'show wait-box'}>
-                    
-                    ... Please Wait
-                </div>
+            <div className={!this.state.isLoading?'hide':'show wait-layer'}></div>
+            <div className={!this.state.isLoading?'hide':'show wait-box'}> ... Please Wait it May take a Minuts</div>
             <section className="box meds-name">
-                <h4 style={{'paddingTop':20}}>Medicaments</h4>
+            <h4 style={{'paddingTop':20}}>Medicaments</h4>
             {this.state.medicament.map((drug,index) => (
             <div style={{'padding':'0 40px'}}>
             <FaTimesCircle 
@@ -199,19 +166,12 @@ class PharmacoTool extends React.Component{
               this.state.medicament[index].DCI = select;
               this.setState([...this.state.medicament]);
             }}
-            />
+            /><br></br>
+            </div>))}
             <br></br>
-            </div>
-            ))}
-                <br></br>
-                <FaPlus 
-                className="med-add-button"
-                onClick={this.addMedicament}
-                />
+            <FaPlus className="med-add-button" onClick={this.addMedicament}/>
             </section>
-            <section className="data-details">
-                 {this.details}
-            </section>
+            <section className="data-details">{this.details}</section>
             <MedInfo meds={this.state.medicament}/>
                 <section className="box side-effects">
                 <form onSubmit={this.handleSubmit} action="localhost:5000/treate" method="POST">
@@ -225,17 +185,37 @@ class PharmacoTool extends React.Component{
                     maxResults={3}
                     options={effetsData}
                     minLength={1}
-                    
-                    onChange={(select)=>{
-                       this.setState({
-                           effetIndiserable:[...this.state.effetIndiserable, select]
-                       })
-                    }}
+                    onChange={(select)=>{this.setState({effetIndiserable:[...this.state.effetIndiserable, select]})}}
                     />
                     <button id="btn">Submit</button>
                 </form>
                 </section>
-               </div>
+                <section className={this.state.resData.length==0?"response hide":"response"}>
+                    <FaTimesCircle onClick={this.removeResulte} style={{float:'right'}}/>
+                    <h4 style={{textAlign:"center"}}>Resulte</h4>
+                    {this.state.resData.map((elem,i)=>(
+                        <div>
+                            <h5 style={{color:"#1fb5cf"}}>Interaction {i+1}</h5>
+                            <hr></hr>
+                            <div>{elem.criteresChronologiques}</div>
+                            <br></br>
+                            <div>{elem.criteresSemiologiques}</div>
+                            <br></br>
+                            <div>{elem.delaiA}</div>
+                            <br></br>
+                            <div>{elem.delaiB}</div>
+                            <br></br>
+                            <div>{elem.interaction}</div>
+                            <br></br>
+                            <div> Score de l'imputabilite extrinseque : {elem.scoreDeLimputabiliteExtrinseque}</div>
+                            <br></br>
+                            <div>Score de l'imputabilite intrinseque : {elem.scoreDeLimputabiliteIntrinseque}</div>
+                            <br></br>
+                            <div>Score Informativite : {elem.scoreInformativite}</div>
+                        </div>
+                    ))}
+                </section>
+            </div>
         )
     }
 }
