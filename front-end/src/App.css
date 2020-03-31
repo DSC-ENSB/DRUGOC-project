@@ -246,7 +246,8 @@ svg{
   margin-bottom: 20px !important;
   padding: 0 50px;
   position: absolute;
-  top: 20px;  
+  top: 50%;
+  transform: translateY(-50%);  
   right: 0;
   z-index: 1;
   display: none;
@@ -310,11 +311,11 @@ textarea{
   color:white;
   position: absolute;
   height: 45px;
-  min-width: 350px;
+  min-width: 370px;
   top:5%;
-  display: none;
-  left: 50%;
-  transform: translate(-50%,-5%);
+  display: none;  
+  right: calc(0 + 10px);
+  transform: translate(0%,-5%); 
   z-index: 9999;
   text-align:center;
   font-size: 14px;
