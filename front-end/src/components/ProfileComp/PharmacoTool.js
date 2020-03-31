@@ -5,6 +5,7 @@ import MedInfo from './pharmSubComp/MedInfo'
 import {Typeahead} from 'react-bootstrap-typeahead'
 import effetsData from '../data/side_effects'
 import DCIData from '../data/dci_json'
+import { type } from 'os'
 
 class PharmacoTool extends React.Component{
     constructor(props){
@@ -12,12 +13,10 @@ class PharmacoTool extends React.Component{
         this.state = { 
             medicament:[{
                 DCI : "",
-                nomberDelot:0,
-                posology:"",
-                dataDapparitionDeleffetIndiserable:"",
+                numeroDeLot:0,
+                dateDapparitionDeLeffetIndiserable:"",
                 dateDexpositionAuMedicament:"",
-                dateDarretOuModificationDuTraitement:"",
-                VI:""
+                dateDarretOuModificationDuTraitement:""
             }], 
             effetIndiserable:[],
             delaiDapparitionCritereChrono:0,
@@ -47,16 +46,29 @@ class PharmacoTool extends React.Component{
         headers: {
             'Content-type': 'application/json'
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(this.state)
         }
         fetch('http://localhost:5000/treate',config)
-        .then(response => response.json())
+        .then(response => {
+            if(response.status==500){
+                this.setState({
+                    isLoading:false,
+                    resData:'Verify Your inputs'
+                })
+            }
+            else if(response.status==404){
+                this.setState({
+                    isLoading:false,
+                    resData:'Page Not Found'
+                })
+            }
+            else{response.json()}
+        })
         .then((response) => {
-            this.setState({
-               resData:[...response],
-               isLoading:false
-               
-           })
+                this.setState({
+                    resData:[...response],
+                    isLoading:false
+                })
       }).catch((err)=>{console.error(err.message)})
     }
     RemoveMedicament(){
@@ -64,11 +76,9 @@ class PharmacoTool extends React.Component{
             {
                 DCI : "",
                 nomberDelot:0,
-                posology:"",
                 dataDapparitionDeleffetIndiserable:"",
                 dateDexpositionAuMedicament:"",
-                dateDarretOuModificationDuTraitement:"",
-                VI:""
+                dateDarretOuModificationDuTraitement:""
             }
         )
         this.setState([...this.state.medicament]);
@@ -78,11 +88,9 @@ class PharmacoTool extends React.Component{
         this.state.medicament.push({
             DCI : "",
             nomberDelot:0,
-            posology:"",
             dataDapparitionDeleffetIndiserable:"",
             dateDexpositionAuMedicament:"",
-            dateDarretOuModificationDuTraitement:"",
-            VI:""
+            dateDarretOuModificationDuTraitement:""
         })
         this.setState([...this.state.medicament]);
     }
@@ -193,7 +201,8 @@ class PharmacoTool extends React.Component{
                 <section className={this.state.resData.length==0?"response hide":"response"}>
                     <FaTimesCircle onClick={this.removeResulte} style={{float:'right'}}/>
                     <h4 style={{textAlign:"center"}}>Resulte</h4>
-                    {this.state.resData.map((elem,i)=>(
+                    {typeof(this.state.resData)=="string"?<div style={{color:'red'}}>Somthing Went wrong</div>:
+                    this.state.resData.map((elem,i)=>(
                         <div>
                             <h5 style={{color:"#1fb5cf"}}>Interaction {i+1}</h5>
                             <hr></hr>
@@ -213,7 +222,8 @@ class PharmacoTool extends React.Component{
                             <br></br>
                             <div>Score Informativite : {elem.scoreInformativite}</div>
                         </div>
-                    ))}
+                    ))
+                    }
                 </section>
             </div>
         )
