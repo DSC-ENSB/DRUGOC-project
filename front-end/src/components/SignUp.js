@@ -7,8 +7,7 @@ function SignUp(props){
         <React.Fragment>
                 <div className="flex-left-and-right">
                 <Left />
-                <SignIn status={props.isClicked}/>
-                <Right status={props.isClicked}/> 
+                <Right checked={props.isClicked}/> 
                 </div>
         </React.Fragment>
         )
