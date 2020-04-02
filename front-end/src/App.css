@@ -41,10 +41,10 @@ input{
   color: white;
 }
 input:focus{
-  border-bottom : 0.625px solid rgba(0, 0, 0, 1);
+  border-bottom : 0.625px solid #764abc;
 }
 #btn{
-  background-color: #1fb5cf;
+  background-color: #764abc;
   border: none;
   border-radius: 50px!important;
   height: 50px;
@@ -176,7 +176,7 @@ content: " ";
   height: 100vh;
   top:0;
   left: 0;
-  background-color: black;
+  background-color: #764abc;
   width: 73px;
   color: #fff !important;
 }
@@ -204,10 +204,10 @@ content: " ";
 }
 .st_child{
   top:15px;
-  color:#1fb5cf;
+  color:#fff;
 }
 .lst_child{
-  color:#1fb5cf;
+  color:#fff;
   transform: rotate(-180deg);
   bottom: 10px;
 }
@@ -225,7 +225,7 @@ ul li{
   margin-bottom:40px;
 }
 ul li:hover{
-  color:#1fb5cf;
+  color:#764abc;
 }
 svg{
   font-size:30px;
@@ -277,17 +277,17 @@ svg{
   border-radius: 8px;
 }
 .pharmaInput:focus{
-  border: 1px solid #1fb5cf;
+  border: 1px solid #764abc;
 }
 .med-add-button{
-  background-color: #1fb5cf;
+  background-color: #764abc;
   border: none;
-  height: 50px;
+  height: 45px;
   position: absolute;
   bottom: 10px;
   right: 10px;
   padding: 10px;
-  width: 50px;
+  width: 45px;
   border-radius: 50%;
   cursor: pointer;
   color: white !important;
@@ -295,7 +295,7 @@ svg{
   z-index: 200;
 }
 .med-add-button:hover{
-  background-color: #116877;
+  background-color: #1fb5cf;
 }
 input[type="date"]{
   color: #222324;
