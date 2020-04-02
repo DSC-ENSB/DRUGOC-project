@@ -102,7 +102,7 @@ class PharmacoTool extends React.Component{
         return(
          <div className={this.props.status?"pharma raised":'hide raised'}>
             <section className="box criter-chrono">
-                <h6>Critere Chronology</h6>
+                <h6 style={{color:'#764abc'}}>Critere Chronology</h6>
                 <br></br>
                 <select value={this.state.delaiDapparitionCritereChrono} 
                 placeholder="--select an option --" 
@@ -148,9 +148,9 @@ class PharmacoTool extends React.Component{
                 </select>
             </section>
             <div className={!this.state.isLoading?'hide':'show wait-layer'}></div>
-            <div className={!this.state.isLoading?'hide':'show wait-box'}> ... Please Wait it May take a Minuts</div>
+            <div className={!this.state.isLoading?'hide':'show wait-box'}> ... Please wait it may take a minuts</div>
             <section className="box meds-name">
-            <h4 style={{'paddingTop':20}}>Medicaments</h4>
+            <h6 style={{'paddingTop':20,color:'#764abc'}}>Medicaments</h6>
             {this.state.medicament.map((drug,index) => (
             <div style={{'padding':'0 40px'}}>
             <FaTimesCircle 
@@ -181,7 +181,7 @@ class PharmacoTool extends React.Component{
             <MedInfo meds={this.state.medicament}/>
                 <section className="box side-effects">
                 <form onSubmit={this.handleSubmit} action="localhost:5000/treate" method="POST">
-                    <h4 style={{'paddingTop':20}}>Effets Indesirables</h4>
+                    <h6 style={{'paddingTop':20,marginBottom:'15px',color:'#764abc'}}>Effets Indesirables</h6>
                     <Typeahead 
                     required={true}
                     placeholder="les effets indésirable"
