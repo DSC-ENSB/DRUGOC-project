@@ -31,6 +31,8 @@ export default class MedInfo extends Component {
     }
     render(){
     return(
+      <React.Fragment>
+        <section className="data-details">{this.state.details}</section>
         <section className="meds-info">
         {this.props.meds.map((elem,i)=>(
         <form className="pharmatoolin" method="POST">
@@ -83,7 +85,7 @@ export default class MedInfo extends Component {
     </form>
     ))}
     </section>
-
+    </React.Fragment>
         )
     }
 }
