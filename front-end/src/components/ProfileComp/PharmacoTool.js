@@ -5,7 +5,6 @@ import MedInfo from './pharmSubComp/MedInfo'
 import {Typeahead} from 'react-bootstrap-typeahead'
 import effetsData from '../data/side_effects'
 import DCIData from '../data/dci_json'
-import { type } from 'os'
 
 class PharmacoTool extends React.Component{
     constructor(props){
@@ -179,7 +178,6 @@ class PharmacoTool extends React.Component{
             <br></br>
             <FaPlus className="med-add-button" onClick={this.addMedicament}/>
             </section>
-            <section className="data-details">{this.details}</section>
             <MedInfo meds={this.state.medicament}/>
                 <section className="box side-effects">
                 <form onSubmit={this.handleSubmit} action="localhost:5000/treate" method="POST">
