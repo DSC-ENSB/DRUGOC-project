@@ -1,5 +1,8 @@
 import React  from 'react'
 import db from '../firebase';
+import Left from './signupComp/Left'
+
+
 
 class SignIn extends React.Component {
     constructor(props){
@@ -31,10 +34,12 @@ class SignIn extends React.Component {
     }
     render(){
         return (
-           <div className={this.props.status?"log-in":'hide log-in'}>
+            <section className="flex-left-and-right">
+            <Left />
+           <div className={this.props.status?"log-in":'log-in'}>
                <h3>LOG IN</h3>
                <form onSubmit={this.handleSubmit} method="POST" action="/profile">
-                   <div className={this.state.err==null?"hidden":"alert alert-danger"}>
+                   <div className={this.state.err===null?"hidden":"alert alert-danger"}>
                        {this.state.err}
                    </div>
                    <input type="email" 
@@ -52,9 +57,9 @@ class SignIn extends React.Component {
                    required
                    />
                    <button className='btn'>LOG IN</button>
-                  
                </form>
            </div>
+           </section>
         )
     }
 } 
