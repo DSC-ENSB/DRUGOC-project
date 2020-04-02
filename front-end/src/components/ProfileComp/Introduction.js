@@ -10,7 +10,7 @@ class Introduction extends React.Component{
             </p>
             <button 
             id="btn" 
-            style={{backgroundColor:'rgba(19, 177, 205, 0.95)',color:'white'}}
+            style={{color:'white'}}
             onClick={this.props.handleClick}
             >
                 Next
