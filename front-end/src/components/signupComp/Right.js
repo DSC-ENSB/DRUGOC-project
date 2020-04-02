@@ -39,12 +39,11 @@ class Right extends React.Component {
     }
     render (){
         return ( 
-            <div className={this.props.status?"hide flex-signup":'flex-signup'}>
-                <h3>SIGN UP</h3>
-                {console.log(this.state.err)}   
+            <div className={this.props.checked?"hide flex-signup":'flex-signup'}>
+                <h3>SIGN UP</h3>  
                 <div >
                     <form onSubmit={this.handleSubmit} action="/profile" method="POST">
-                    <div className={this.state.err==null?"hide-alert":"alert alert-danger"}>{this.state.err}</div>
+                    <div className={this.state.err===null?"hide-alert":"alert alert-danger"}>{this.state.err}</div>
                     <input 
                     name="email"
                     type="email"
