@@ -12,6 +12,53 @@ body{
   background-image: linear-gradient(145deg, rgba(19, 177, 205, 0.95) 0%, rgba(152, 119, 234, 0.95) 100%);
   background-repeat: repeat-x;
 }
+/* Main Page */
+.section-main{
+  display: flex;
+  flex-direction:row ;
+  height: 100%;
+}
+.img-section{
+  width: 50%;
+  float: right;
+  align-self: center;
+}
+.welcome-section{ 
+  display: inline-block;
+  width: 50%;
+  align-self: center;
+  line-height: 50px;
+}
+.main-sign-up{
+  position: absolute;
+  top: 8px;
+  right: 25px;
+  background: white;
+  color: #764abc;
+  border: none;
+}
+.main-log-in {
+  height: 3.5rem;
+  width: 8rem;
+  margin-left:50% ;
+  border-radius: 50px;
+  transition: all .4s linear;
+  border: 1px solid #764abc;
+  background-color: white;
+  color: #764abc;
+}
+.main-log-in:hover{
+  color: white;
+  background-color: #764abc;
+  border: none;
+}
+footer{
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* End Style */
 .wrapper{
   height: 100%;
   width: 100%;
