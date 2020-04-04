@@ -13,7 +13,7 @@ def RE_extractor(med):
 	
 	with open("CIS.csv",  encoding="ISO-8859-3") as f:
 		cis = []
-		for line in islice(f, 2, None): 
+		for line in islice(f, 0, None): 
 			l = line.split("\t")
 			try:
 				if med in l[1] and l[-2] not in cis and len(l[-2]) != 0:
