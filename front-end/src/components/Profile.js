@@ -14,8 +14,8 @@ class Profile extends React.Component {
     }
     componentDidMount(){
         const head = document.getElementsByTagName('header')[0]
-        head.classList.add('hide')
         const body = document.getElementsByTagName('body')[0]
+        head.classList.add('hide')
         body.style.backgroundImage = "none"
     }
     handleClick(){
