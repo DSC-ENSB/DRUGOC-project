@@ -3,12 +3,12 @@ import { FaGithub } from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 
 export default class Main extends Component {
-    componentDidMount(){
+    /*componentDidMount(){
         const head = document.getElementsByTagName('header')[0]
         const body = document.getElementsByTagName('body')[0]
         head.classList.add('hide')
         body.style.backgroundImage = "none"
-    }
+    }*/
     render(){
         return(
         <React.Fragment>
@@ -24,12 +24,12 @@ export default class Main extends Component {
                     </Link>
                </section>
                <section className="img-section">
-                   <img src='../../undraw_medical_care_movn.svg' height="400" width="400" title="undraw_medical_care_movn"/>
+                   <img src='../../undraw_medical_care_movn.svg' alt="Medical Care" height="400" width="400" title="undraw_medical_care_movn"/>
                </section>
            </section>
                <footer>
                    For more details have a look on documentation at
-                   <a href="https://khaledslimani1998.github.io/khaledslimani1998.git.io/" target="_blank">
+                   <a href="https://khaledslimani1998.github.io/khaledslimani1998.git.io/" rel="opener">
                    <FaGithub 
                    style={{marginLeft:"5px" ,color:"black"}}
                    />
