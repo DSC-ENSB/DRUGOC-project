@@ -11,7 +11,7 @@ import Sideeffect
 
 def RE_extractor(med):
 	
-	with open("CIS.txt",  encoding="ISO-8859-1") as f:
+	with open("CIS.csv",  encoding="ISO-8859-3") as f:
 		cis = []
 		for line in islice(f, 2, None): 
 			l = line.split("\t")
@@ -49,7 +49,7 @@ def ansm_parser(med, side_effect):
 
 def ID_extractor(side_effect):
 	
-	with open("meddra_all_se.tsv", "r", encoding="ISO-8859-1") as f:
+	with open("meddra_all_se.tsv", "r", encoding="ISO-8859-3") as f:
 		res = []
 		for line in islice(f, 0, None): 
 			l=line.split("\t")
