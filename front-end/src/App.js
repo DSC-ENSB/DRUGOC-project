@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router,Switch,Route,Redirect} from "react-router-dom";
+import { withRouter } from 'react-router-dom';    
 import './App.css';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn'
@@ -6,9 +8,9 @@ import Home from './components/Home';
 import Nav from './components/Nav';
 import Active from './components/Active';
 import Profile from './components/Profile';
+import Main from './components/main'
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
-import { BrowserRouter as Router,Switch,Route,Redirect} from "react-router-dom";
 import db from './firebase'
 
 class App extends React.Component{
@@ -36,30 +38,26 @@ class App extends React.Component{
       }
     })
   }
-  handleclick(){this.setState(prevState => ({isClicked : !prevState.isClicked}) )}
+  handleclick(){this.setState(prevState => ({isClicked : !prevState.isClicked}) )
+  {console.log(this.state.isClicked , this.state.authenticated)}
+}
+
 
   render() {
   return (
-    <div>
+    <React.Fragment>
       <Router>
-      <Nav handleclick={this.handleclick} isClicked={this.state.isClicked}/>
-      
+        <Nav  handleclick={this.handleclick} isClicked={this.state.isClicked} match={"sign-up" || "log-in"}/>
         <Switch>
-          
-          <Route exact path='/home'>
-            <Home /> 
-          </Route>
-          <Route exact path='/activate'>
-            <Active />
-          </Route>
-          <PrivateRoute path="/profile" authenticated={this.state.authenticated} component={Profile}></PrivateRoute>
           <PublicRoute path="/sign-up"  authenticated={this.state.authenticated} component={SignUp} status={this.state.isClicked}></PublicRoute>
-          <PublicRoute path="/"  authenticated={this.state.authenticated} component={SignUp} status={this.state.isClicked}></PublicRoute>
           <PublicRoute path="/log-in"   authenticated={this.state.authenticated} component={SignIn} status={this.state.isClicked}></PublicRoute>
-          
-           </Switch>
+          <Route exact path="/" component={Main}></Route>
+          <Route exact path='/home' component={Home}></Route>
+          <Route exact path='/activate' component={Active}></Route>
+          <PrivateRoute path="/profile" authenticated={this.state.authenticated} component={Profile}></PrivateRoute>
+        </Switch>
       </Router> 
-    </div>
+    </React.Fragment>
   );
 }
 
