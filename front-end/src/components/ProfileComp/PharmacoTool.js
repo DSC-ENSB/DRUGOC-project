@@ -1,6 +1,5 @@
 import React from 'react'
-import { FaPlus, FaTimesCircle, FaSpinner } from 'react-icons/fa'
-import data from './dataa.json' 
+import { FaPlus, FaTimesCircle } from 'react-icons/fa'
 import MedInfo from './pharmSubComp/MedInfo'
 import {Typeahead} from 'react-bootstrap-typeahead'
 import effetsData from '../data/side_effects'
@@ -49,13 +48,13 @@ class PharmacoTool extends React.Component{
         }
         fetch('http://localhost:5000/treate',config)
         .then(response => {
-            if(response.status==500){
+            if(response.status===500){
                 this.setState({
                     isLoading:false,
                     resData:'Verify Your inputs'
                 })
             }
-            else if(response.status==404){
+            else if(response.status===404){
                 this.setState({
                     isLoading:false,
                     resData:'Page Not Found'
@@ -94,7 +93,6 @@ class PharmacoTool extends React.Component{
         this.setState([...this.state.medicament]);
     }
     isFocused(id){ 
-        console.log(this.state)
         let drugInfo = document.getElementsByClassName('pharmatoolin')
         this.state.medicament.map((x,i)=>{i===id?drugInfo[i].classList.add('show'):drugInfo[i].classList.remove('show')})   
     }
@@ -196,10 +194,10 @@ class PharmacoTool extends React.Component{
                     <button id="btn">Submit</button>
                 </form>
                 </section>
-                <section className={this.state.resData.length==0?"response hide":"response"}>
+                <section className={this.state.resData.length===0?"response hide":"response"}>
                     <FaTimesCircle onClick={this.removeResulte} style={{float:'right'}}/>
                     <h4 style={{textAlign:"center"}}>Resulte</h4>
-                    {typeof(this.state.resData)=="string"?<div style={{color:'red'}}>Somthing Went wrong</div>:
+                    {typeof(this.state.resData)==="string"?<div style={{color:'red'}}>Somthing Went wrong</div>:
                     this.state.resData.map((elem,i)=>(
                         <div>
                             <h5 style={{color:"#1fb5cf"}}>Interaction {i+1}</h5>
