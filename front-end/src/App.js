@@ -54,6 +54,7 @@ class App extends React.Component{
           </Route>
           <PrivateRoute path="/profile" authenticated={this.state.authenticated} component={Profile}></PrivateRoute>
           <PublicRoute path="/sign-up"  authenticated={this.state.authenticated} component={SignUp} status={this.state.isClicked}></PublicRoute>
+          <PublicRoute path="/"  authenticated={this.state.authenticated} component={SignUp} status={this.state.isClicked}></PublicRoute>
           <PublicRoute path="/log-in"   authenticated={this.state.authenticated} component={SignIn} status={this.state.isClicked}></PublicRoute>
           
            </Switch>
