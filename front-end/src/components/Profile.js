@@ -12,12 +12,6 @@ class Profile extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this)
     }
-    componentDidMount(){
-        const head = document.getElementsByTagName('header')[0]
-        const body = document.getElementsByTagName('body')[0]
-        head.classList.add('hide')
-        body.style.backgroundImage = "none"
-    }
     handleClick(){
         this.setState(prevState=> ({
             headerShowen : !prevState.headerShowen
