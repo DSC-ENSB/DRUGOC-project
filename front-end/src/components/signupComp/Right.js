@@ -39,7 +39,7 @@ class Right extends React.Component {
     }
     render (){
         return ( 
-            <div className={this.props.checked?"hide flex-signup":'flex-signup'}>
+            <div className="flex-signup">
                 <h3>SIGN UP</h3>  
                 <div >
                     <form onSubmit={this.handleSubmit} action="/profile" method="POST">
