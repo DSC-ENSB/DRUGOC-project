@@ -1,11 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router,Switch,Route,Redirect} from "react-router-dom";
-import { withRouter } from 'react-router-dom';    
+import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import './App.css';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn'
 import Home from './components/Home';
-import Nav from './components/Nav';
 import Active from './components/Active';
 import Profile from './components/Profile';
 import Main from './components/main'
@@ -38,16 +36,13 @@ class App extends React.Component{
       }
     })
   }
-  handleclick(){this.setState(prevState => ({isClicked : !prevState.isClicked}) )
-  {console.log(this.state.isClicked , this.state.authenticated)}
-}
+  handleclick(){this.setState(prevState => ({isClicked : !prevState.isClicked}) )}
 
 
   render() {
   return (
     <React.Fragment>
       <Router>
-        <Nav  handleclick={this.handleclick} isClicked={this.state.isClicked} match={"sign-up" || "log-in"}/>
         <Switch>
           <PublicRoute path="/sign-up"  authenticated={this.state.authenticated} component={SignUp} status={this.state.isClicked}></PublicRoute>
           <PublicRoute path="/log-in"   authenticated={this.state.authenticated} component={SignIn} status={this.state.isClicked}></PublicRoute>
