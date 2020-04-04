@@ -1,6 +1,7 @@
 import React  from 'react'
 import db from '../firebase';
 import Left from './signupComp/Left'
+import Nav from './Nav';
 
 
 
@@ -34,6 +35,8 @@ class SignIn extends React.Component {
     }
     render(){
         return (
+            <React.Fragment>
+            <Nav isClicked={false}/>
             <section className="flex-left-and-right">
             <Left />
            <div className={this.props.status?"log-in":'log-in'}>
@@ -60,6 +63,7 @@ class SignIn extends React.Component {
                </form>
            </div>
            </section>
+           </React.Fragment>
         )
     }
 } 
