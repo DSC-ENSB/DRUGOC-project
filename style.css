@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat Medium';
+    overflow: auto;
+    
+}
+h1{
+    color: #764abc;    
+    transition: color .4s linear;
+}
+h1:hover{
+    color:rgb(47, 46, 65)
+}
+header{
+    position: fixed;
+    background-color: white;
+    height: 73px;
+    width:100%;
+    line-height: 73px;
+    color: #764abc;
+    font-size: 28px;
+    padding: 0 0 0 20px;
+}
+aside{
+    height: 100%;
+    width: 25%;
+    display: inline-block;
+    position: fixed;
+}
+aside ul{
+    position: relative;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    list-style: none;
+}
+aside ul li{
+    padding-bottom: 20px;
+}
+main{
+    margin-top: 73px;
+    height: 100%;
+    display: inline-block;
+    width: 75%;
+    padding: 20px;
+    float: right;
+    color: rgb(47, 46, 65);
+    text-align: justify;
+    line-height: 2;
+}
+.brand{
+    text-decoration: none;
+    color: rgb(47, 46, 65) ;
+}
+a:not(.brand){
+    text-decoration: none;
+    color: #764abc;
+    transition: all .2s linear;
+}
+a:not(.brand):hover{
+    margin-left: 5px;
+}
+@media screen and (max-width: 635px) {
+    header{
+        text-align: center;
+    }
+    aside {
+      display: none;
+    }
+    main{
+        width: 100%;
+    }
+    h1{
+        text-align: center;
+        font-size: 22px;
+    }
+  }
