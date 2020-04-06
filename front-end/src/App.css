@@ -116,6 +116,7 @@ input:focus{
 }
 /* The of User interaction style  */
 .flex-left-and-right{
+  
   display: flex;
   justify-content: space-around;
   align-items: center;

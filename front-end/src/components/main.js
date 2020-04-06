@@ -3,12 +3,6 @@ import { FaGithub } from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 
 export default class Main extends Component {
-    /*componentDidMount(){
-        const head = document.getElementsByTagName('header')[0]
-        const body = document.getElementsByTagName('body')[0]
-        head.classList.add('hide')
-        body.style.backgroundImage = "none"
-    }*/
     render(){
         return(
         <React.Fragment>
