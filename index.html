@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DRUGOC | Documentaion</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <div><a href="http://localhost:3000/" class="brand">DRUGOC</a></div>
+    </header>
+        <aside>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li title="cette méthode"><a href="#principes">Principes d’utilisation</a> </li>
+                <li><a href="#score-info">Score d’informativité (SI)</a></li>
+                <li title="(score intrinsèque)"><a href="#score-intri">Imputabilité intrinsèque </a></li>
+                <li><a href="#score-extri">Imputabilité extrinsèque</a></li>
+            </ul>
+        </aside>
+        <main>
+            <div>
+                <h1 id="intro"># Introduction</h1>
+                <p>
+                    En pharmacovigilance, la causalité est évaluée en estimant la probabilité de la relation entre la
+                    prise d’un médicament et l’apparition d’effet(s) indésirable(s) tirée.
+                </p>
+            </div>
+            <div>
+                <h1 id="principes"># Principes d’utilisation</h1>
+                <p>
+                    Un cas valide de pharmacovigilance est défini par la présence de 4 éléments : l’auteur du rapport
+                    (le professionnel de santé), le patient (défini par son sexe, son âge et ses initiales), le
+                    médicament et l’effet indésirable.
+
+                    • L’imputabilité et le score informatif doivent être déterminés indépendamment pour chaque
+                    médicament,
+
+                    • L’évaluation prend en compte tous les composés du médicament : substance(s) active(s) et ses
+                    métabolites, les excipients...etc
+
+                    • L’imputabilité et le score informatif doivent être déterminés indépendamment pour chaque
+                    médicament.
+
+                    • L’évaluation prend en compte tous les composés du médicament : substance(s) active(s) et ses
+                    métabolites, les excipients…etc.
+
+                    • Pour chaque cas, l’imputabilité doit être déterminée pour tous les effets indésirables inclus dans
+                    le même diagnostique.
+
+                    • L’imputabilité est déterminée à un temps précis et peut changer avec le temps (cela dépend des
+                    informations additionnelles disponibles pour le cas et/ou le médicament). </p>
+            </div>
+            <div>
+                <h1 id="score-info"># Score d’informativité (SI)</h1>
+                <p>
+                    Il est devenu nécessaire d’ajouter un score d’informativité à la méthode d’imputabilité qui va être
+                    indépendant du score d’imputabilité, cela permet d’avoir un élément additionnel qui va différencier
+                    chaque médicament suspect d’un autre. Cette catégorisation est contextuelle et évolue avec le temps.
+                    L’objectif de ce score est d’évaluer rapidement le niveau d’informativité (NI) disponible pour
+                    chaque médicament. Les éléments a et b sont définis comme suit pour chaque paire Médicament-Effet
+                    indésirable : a : temps d’apparition de l’effet indésirable par rapport à la durée d’exposition au
+                    médicament. b : information concernant la poursuite, l’arrêt ou le changement de posologie du
+                    médicament. L’informativité est classée en 3 niveaux pour chaque paire Médicament-Effet indésirable,
+                    selon les informations disponibles : SI = NI2 : les éléments a et b sont spécifiés. SI = NI1 : un
+                    des 2 éléments a ou b n’est pas spécifié. SI=NI0 : les éléments a et b ne sont pas spécifiés.
+                </p>
+            </div>
+            <div>
+                <h1 id="score-intri"># Imputabilité intrinsèque (score intrinsèque)</h1>
+                <p>
+                    Basée sur 7 critères divisés en 2 catégories : chronologiques et sémiologiques. L’objectif est de
+                    calculer un score numérique basé uniquement sur des données cliniques et expérimentales. A. Critères
+                    chronologiques Le score chronologique est une combinaison entre 3 critères : Délai d’apparition des
+                    effets indésirables : Peut être qualifié de suggestif, incompatible ou compatible (ni suggestif ni
+                    incompatible). L’évolution de l’effet indésirable suite à l’arrêt/changements de posologie : Peut
+                    être qualifiée de suggestive, non concluante ou non suggestive. Ré administration : Peut être
+                    qualifiée de positive (R+), négative (R-) ou non concluante (R0). Conformément à une table de
+                    décision, la combinaison de ces 3 critères chronologiques aboutit à un score intermédiaire (C), avec
+                    4 possibilités : Chronologie vraisemblable (C3), chronologie plausible (C2), chronologie douteuse
+                    (C1) et chronologie paraissant exclure le rôle du médicament (C0). B. Critères sémiologiques - Rôle
+                    évocatif sémiologique d’un médicament. - Facteurs de prédisposition à une paire Effet
+                    indésirable-Médicament. - Examens complémentaires spécifiques fiables : Le résultat d’un examen peut
+                    être positif (L+), négatif (L-) ou non disponible/non concluant (L0). - Cause non médicamenteuse : 3
+                    cas possible : Cause non médicamenteuse absente après étude appropriée, cause non médicamenteuse
+                    présente et cause non médicamenteuse non étudiée, recherche incomplète ou non concluante.
+                    Conformément à une seconde table de décision, la combinaison de ces 4 critères peut indiquer une
+                    sémiologie peut être vraisemblable (S3), plausible (S2) ou douteuse (S1). Les résultats des 2 tables
+                    de décision précédentes servent d’entrée à une troisième table finale qui donne l’imputabilité
+                    intrinsèque avec des scores possibles d’I0 à I6. </p>
+            </div>
+            <div>
+                <h1 id="score-extri"># Imputabilité extrinsèque</h1>
+                <p>
+                    Indépendante de l’imputabilité intrinsèque, ce type d’imputabilité est une cotation systématisée des
+                    données bibliographiques concernant l’événement en tant qu’effet éventuel du médicament. Cette
+                    cotation possède 4 degrés. Ils sont répartis comme suit : • B4 : L’effet est attendu, c’est un effet
+                    dont la nature, la gravité, l’intensité et l’évolution correspondent aux informations décrites dans
+                    le résumé des caractéristiques du produit (RCP). • B3 : L’effet est référencé ou largement publié
+                    avec ce médicament dans des ouvrages de référence (Martindale, Meyler’s side effect of drugs…) et/ou
+                    des bases de données comme Embase ou Medline. • B2 : L’effet a été publié une ou deux fois dans un
+                    journal scientifique ou dans une base de données (avec sémiologie relativement différente ou publié
+                    avec un autre médicament de la même classe pharmacologique et/ou chimique ou répartis comme suit : •
+                    B4 : L’effet est attendu, c’est un effet dont la nature, la gravité, l’intensité et l’évolution
+                    correspondent aux informations décrites dans le résumé des caractéristiques du produit (RCP). • B3 :
+                    L’effet est référencé ou largement publié avec ce médicament dans des ouvrages de référence
+                    (Martindale, Meyler’s side effect of drugs…) et/ou des bases de données comme Embase ou Medline. •
+                    B2 : L’effet a été publié une ou deux fois dans un journal scientifique ou dans une base de données
+                    (avec sémiologie relativement différente ou publié avec un autre médicament de la même classe
+                    pharmacologique et/ou chimique ou données purement expérimentales). • B1 : L’effet n’a pas été
+                    publié conformément aux définitions de B3 ou B2.
+            </div>
+        </main>
+</body>
+
+</html>
