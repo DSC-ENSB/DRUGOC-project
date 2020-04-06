@@ -23,7 +23,7 @@ export default class Main extends Component {
            </section>
                <footer>
                    For more details have a look on documentation at
-                   <a href="https://khaledslimani1998.github.io/khaledslimani1998.git.io/" rel="opener">
+                   <a href="http://selamasalem.me/DRUGOC-Documentation/" rel="opener">
                    <FaGithub 
                    style={{marginLeft:"5px" ,color:"black"}}
                    />
