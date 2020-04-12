@@ -11,10 +11,10 @@ export default class Main extends Component {
                    <h2 style={{color:'#764abc'}}>DRUGOC</h2>
                    <p>Drug oversight and control first informatic tool for pharmacovigilance in Algeria to help doctors </p>
                    <Link to="/log-in">
-                        <button class="main-log-in">LOG IN</button>
+                        <button className="main-log-in">LOG IN</button>
                     </Link>
                     <Link to="/sign-up">
-                        <button class="main-sign-up">SIGN UP</button>
+                        <button className="main-sign-up">SIGN UP</button>
                     </Link>
                </section>
                <section className="img-section">
