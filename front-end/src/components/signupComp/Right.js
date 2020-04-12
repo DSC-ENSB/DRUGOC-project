@@ -1,6 +1,5 @@
 import React  from 'react'
 import firebase from '../../firebase';
-// import { Link } from 'react-router-dom'
 
 class Right extends React.Component {
     constructor(props){
@@ -12,7 +11,6 @@ class Right extends React.Component {
         }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)   
-    //this.sendEmail = this.sendEmail.bind(this) 
     }
     handleChange(event){
         const { name , value } = event.target
@@ -20,14 +18,6 @@ class Right extends React.Component {
             [name] : value
         })
     }
-    /*sendEmail(){
-        let user = firebase.auth().currentUser;
-        user.sendEmailVerification().then(function() {
-            console.log('Email Have been Sent ')
-          }).catch(function(err){
-              console.log(err)
-        })
-    } */
     handleSubmit(event){
         event.preventDefault();
         const { email, password } = this.state;
