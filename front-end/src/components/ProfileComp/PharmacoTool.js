@@ -36,6 +36,7 @@ class PharmacoTool extends React.Component{
         this.HideInfo = this.HideInfo.bind(this)
     }
     handleSubmit(event){
+        console.log(Data);
         event.preventDefault()
         this.setState({isLoading:true})
         const config = {
@@ -46,20 +47,8 @@ class PharmacoTool extends React.Component{
           body: JSON.stringify(this.state)
         }
         fetch('http://localhost:5000/treate',config)
-        .then(response => {
-            if(response.status===500){
-                this.setState({
-                    isLoading:false,
-                    resData:'Verify Your inputs'
-                })
-            }
-            else{JSON.parse(response)}
-        })
-        .then((response) => {
-                this.setState({
-                    resData:[...response],
-                    isLoading:false
-                })
+        .then(response => response.status===500?this.setState({isLoading:false,resData:'Verify Your inputs'}):response.json())
+        .then((response) => {this.setState({resData:[...response],isLoading:false})
       }).catch((err)=>{console.error(err.message)})
     }
     RemoveMedicament(){
