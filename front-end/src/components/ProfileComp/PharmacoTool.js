@@ -36,7 +36,6 @@ class PharmacoTool extends React.Component{
         this.HideInfo = this.HideInfo.bind(this)
     }
     handleSubmit(event){
-        console.log(Data);
         event.preventDefault()
         this.setState({isLoading:true})
         const config = {
