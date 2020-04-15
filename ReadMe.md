@@ -6,7 +6,7 @@ DrugOC est une application web de pharmacovigilance qui permet deux choses:
 
 2- Déclarer ces effets indésirables aux autorités appropriées à travers des rapports complets. 
 
-La procédure se fasse suivant une méthode d'imputabilité frnaçaise : https://www.ncbi.nlm.nih.gov/pubmed/23773347
+La procédure se fasse suivant une méthode d'imputabilité française : https://www.ncbi.nlm.nih.gov/pubmed/23773347
 
 ## Intérêt
 
