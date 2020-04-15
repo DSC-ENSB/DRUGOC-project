@@ -24,8 +24,11 @@ pas de délai défini pour les autres.
 ## Perspictives
 
 1- Créer une base de données (Français - Anglais) dont les médicaments et les effets indésirables sont extraites à partir des ouvrages de références et en collaboration avec les professionnels de santé.
+
 2- Créer une base de données pour récolter les rapports soumis par les professionnels de santé tout en respectant l'annonymat du rapporteur et du patient.
+
 3- Créer un réseau de neurones pour automatiser la procédure complètement, notamment en termes des critères chronlogiques et les critères sémiologiques vues qu'ils nécessitent la connaissance et l'expertise d'un medecin pharmacologue.
+
 4- Une fois on arrive à bout avec la pharmacovigilance on va entamer la matériovigilance, la virovigilance, la vaccinovigilance et la phytovigilance.
 
 ## Contribution
