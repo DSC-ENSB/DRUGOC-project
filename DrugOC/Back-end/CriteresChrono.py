@@ -1,11 +1,8 @@
 def CriteresChronologiques(obj): 
      
     DAEI = obj["delaiDapparitionCritereChrono"] 
-   
     EEI = obj["evolutionDeffet"]
-   
     R = obj["reAdministration"]
-
     CC = ""
     
     if EEI == 0:

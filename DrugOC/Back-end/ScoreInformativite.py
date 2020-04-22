@@ -2,18 +2,9 @@ import Date
 
 def ScoreInformativite(DAEI, DDMT, DEM):
     
-    if DAEI: 
-        delaiA = Date.parametreA(DAEI, DEM)
-
-    else: 
-        delaiA = 0
-        
-    if DDMT:
-        delaiB = Date.parametreB(DDMT, DEM)
-        
-    else: 
-        delaiB = 0
-
+    delaiA = Date.parametreA(DAEI, DEM) if DAEI else 0
+    delaiB = Date.parametreB(DDMT, DEM) if DDMT else 0
+    
     if (DAEI and DDMT):
         SI = "NI2"
 
