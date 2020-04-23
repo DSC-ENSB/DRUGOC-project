@@ -23,6 +23,7 @@ pas de délai défini pour les autres.
 
 ## Usage
 
+Veuillez consulter la documentation du projet sur : http://selamasalem.me/DRUGOC-Documentation/ 
 
 ## Perspictives
 
