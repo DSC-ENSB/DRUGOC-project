@@ -6,11 +6,11 @@ DrugOC est une application web de pharmacovigilance qui permet deux choses:
 
 2- Déclarer ces effets indésirables aux autorités appropriées à travers des rapports complets. 
 
-La procédure se fasse suivant une méthode d'imputabilité française : https://www.ncbi.nlm.nih.gov/pubmed/23773347
+La procédure se fait suivant la méthode d'imputabilité française : https://www.ncbi.nlm.nih.gov/pubmed/23773347
 
 ## Intérêt
 
-Du fait que nos connaissances avant la commercialisation des médicaments sont insuffisantes, les effets indésirables restent un fardeau lourd qui engendre des pertes annuelles gigantesques en termes d'argent et surtout en termes de vies. La déclaration et le traitement rapide de l'information permetteront une mielleure vigilance et un meilleur suivi de la vie des médicaments sur le marché et permet donc de réduire les risques dues à la consommation des médicaments, voir même sauver des vies.
+Du fait que nos connaissances avant la commercialisation des médicaments sont insuffisantes, les effets indésirables restent un fardeau lourd qui engendre des pertes annuelles gigantesques en termes d'argent et surtout en termes de vies. La déclaration et le traitement rapide de l'information permetteront une mielleure vigilance et un meilleur suivi de la vie des médicaments sur le marché et permet donc de réduire les risques dus à la consommation des médicaments, voir même sauver des vies.
 
 ### Qui doit déclarer ?
 
@@ -26,7 +26,7 @@ pas de délai défini pour les autres.
 
 ## Perspictives
 
-1- Créer une base de données algériennes en Français et en Anglais, dont les médicaments et les effets indésirables sont extraites à partir des ouvrages de références et en collaboration avec les professionnels de santé.
+1- Créer une base de données algériennes en Français et en Anglais, dont les médicaments et les effets indésirables sont extraits à partir des ouvrages de références et en collaboration avec les professionnels de santé.
 
 2- Créer une base de données pour récolter les rapports soumis par les professionnels de santé tout en respectant l'annonymat du rapporteur et du patient.
 
