@@ -122,9 +122,9 @@ class PharmacoTool extends React.Component{
                 <select value={this.state.reAdministration}
                 onChange={(event)=>{this.setState({reAdministration:Number(event.target.value)})}}>
                     <option value="" disabled selected>Ré administration</option>
-                    <option value={0}>R+</option>
-                    <option value={1}>R-</option>
-                    <option value={2}>R0</option>
+                    <option value={0}>présent</option>
+                    <option value={1}>absente</option>
+                    <option value={2}>non concluante</option>
                 </select>
                 <br></br>
                 <select value={this.state.critereSemiologiqueCliniqueOuParaclinique}
@@ -145,9 +145,9 @@ class PharmacoTool extends React.Component{
                 <select value={this.state.examenComplementaire}
                 onChange={(event)=>{this.setState({examenComplementaire:Number(event.target.value)})}}>
                     <option value="" disabled selected>Examens complémentaires</option>
-                    <option value={0}>L+</option>
-                    <option value={1}>L-</option>
-                    <option value={2}>L0</option>
+                    <option value={0}>présent</option>
+                    <option value={1}>absente</option>
+                    <option value={2}>non concluante / non disponible</option>
                 </select>
             </section>
             <div className={!this.state.isLoading?'hide':'show wait-layer'}></div>
