@@ -45,7 +45,7 @@ class PharmacoTool extends React.Component{
           },
           body: JSON.stringify(this.state)
         }
-        fetch('http://localhost:5000/treate',config)
+        fetch( 'http://127.0.0.1:5000/treate',config)
         .then(response => response.status===500?this.setState({isLoading:false,resData:'Verify Your inputs'}):response.json())
         .then((response) => {this.setState({resData:[...response],isLoading:false})
       }).catch((err)=>{console.error(err.message)})
@@ -73,9 +73,10 @@ class PharmacoTool extends React.Component{
         this.setState([...this.state.medicament]);
     }
     isFocused(id){ 
-        console.log(typeof this.state.delaiDapparitionCritereChrono)
         let drugInfo = document.getElementsByClassName('pharmatoolin')
-        this.state.medicament.map((x,i)=>{i===id?drugInfo[i].classList.add('show'):drugInfo[i].classList.remove('show')})   
+        this.state.medicament.map((x,i) => {
+            return i===id?drugInfo[i].classList.add('show'):drugInfo[i].classList.remove('show')
+        }); 
     }
     showInfo(type){
         const dataBanner = document.querySelector('.data-details')
@@ -100,55 +101,59 @@ class PharmacoTool extends React.Component{
         return(
          <div className={this.props.status?"pharma raised":'hide raised'}>
             <section className="box criter-chrono">
-                <h6 style={{color:'#764abc'}}>Critere Chronology</h6>
+                <h6 style={{color:'#764abc'}}>Critère Chronologie</h6>
                 <br></br>
                 <select value={this.state.delaiDapparitionCritereChrono} 
-                placeholder="--select an option --" 
                 onChange={(event)=>{this.setState({delaiDapparitionCritereChrono:Number(event.target.value)})}}>
-                    <option value={0}>one</option>
-                    <option value={1}>two</option>
-                    <option value={2}>tri</option>
+                    <option value="" disabled selected>Délai d’apparition des effets indésirables</option>
+                    <option value={0}>suggestif</option>
+                    <option value={1}>incompatible</option>
+                    <option value={2}>compatible</option>
                 </select>
                 <br></br>
                 <select value={this.state.evolutionDeffet}
                 onChange={(event)=>{this.setState({evolutionDeffet:Number(event.target.value)})}}>
-                    <option value={0}>Tri</option>
-                    <option value={1}>two</option>
-                    <option value={2}>one</option>
+                    <option value="" disabled selected>L’évolution de l’effet indésirable</option>
+                    <option value={0}>suggestive</option>
+                    <option value={1}>non concluante</option>
+                    <option value={2}>non suggestive</option>
                 </select>
                 <br></br>
                 <select value={this.state.reAdministration}
                 onChange={(event)=>{this.setState({reAdministration:Number(event.target.value)})}}>
-                    <option value={0}>One</option>
-                    <option value={1}>two</option>
-                    <option value={2}>tri</option>
+                    <option value="" disabled selected>Ré administration</option>
+                    <option value={0}>R+</option>
+                    <option value={1}>R-</option>
+                    <option value={2}>R0</option>
                 </select>
                 <br></br>
                 <select value={this.state.critereSemiologiqueCliniqueOuParaclinique}
                 onChange={(event)=>{this.setState({critereSemiologiqueCliniqueOuParaclinique:Number(event.target.value)})}}>
-                    <option value={0}>Tri</option>
-                    <option value={1}>two</option>
-                    <option value={2}>one</option>
+                    <option value="" disabled selected>Critere semiologique clinique ou paraclinique</option>
+                    <option value={0}>Rôle évocatif sémiologique d’un médicament.</option>
+                    <option value={1}>Facteurs de prédisposition à une paire Effet indésirable-Médicament.</option>
                 </select>
                 <br></br>
                 <select value={this.state.autreCauseNonMedicamenteuse}
                 onChange={(event)=>{this.setState({autreCauseNonMedicamenteuse:Number(event.target.value)})}}>
-                    <option value={0}>One</option>
-                    <option value={1}>two</option>
-                    <option value={2}>tri</option>
+                    <option value="" disabled selected>Autre cause non médicamenteuse</option>
+                    <option value={0}>Cause non médicamenteuse absente après étude appropriée</option>
+                    <option value={1}>cause non médicamenteuse présente</option>
+                    <option value={2}>cause non médicamenteuse non étudiée</option>
                 </select>
                 <br></br>
                 <select value={this.state.examenComplementaire}
                 onChange={(event)=>{this.setState({examenComplementaire:Number(event.target.value)})}}>
-                    <option value={0}>Tri</option>
-                    <option value={1}>two</option>
-                    <option value={2}>one</option>
+                    <option value="" disabled selected>Examens complémentaires</option>
+                    <option value={0}>L+</option>
+                    <option value={1}>L-</option>
+                    <option value={2}>L0</option>
                 </select>
             </section>
             <div className={!this.state.isLoading?'hide':'show wait-layer'}></div>
-            <div className={!this.state.isLoading?'hide':'show wait-box'}> ... Please wait it may take a minuts</div>
+            <div className={!this.state.isLoading?'hide':'show wait-box'}> ... veuillez patienter </div>
             <section className="box meds-name">
-            <h6 style={{'paddingTop':20,color:'#764abc'}}>Medicaments</h6>
+            <h6 style={{'paddingTop':20,color:'#764abc'}}>Médicaments</h6>
             {this.state.medicament.map((drug,i) => (
             <div style={{'padding':'0 40px'}}>
             <FaTimesCircle 
@@ -158,7 +163,7 @@ class PharmacoTool extends React.Component{
             />
             <Typeahead
             options={DCIData}
-            placeholder="   DCI Name"
+            placeholder="   Nom DCI"
             required={true}
             maxResults={5}
             minLength={1}
@@ -179,7 +184,7 @@ class PharmacoTool extends React.Component{
             </section>
                 <section className="box side-effects">
                 <form onSubmit={this.handleSubmit} action="localhost:5000/treate" method="POST">
-                    <h6 style={{'paddingTop':20,marginBottom:'15px',color:'#764abc'}}>Effets Indesirables</h6>
+                    <h6 style={{'paddingTop':20,marginBottom:'15px',color:'#764abc'}}>Effets Indésirables</h6>
                     <Typeahead 
                     required={true}
                     placeholder="les effets indésirable"
@@ -193,7 +198,7 @@ class PharmacoTool extends React.Component{
                         ...select
                     ]})}}
                     />
-                    <button id="btn">Submit</button>
+                    <button id="btn">Traiter</button>
                 </form>
                 </section>
                 <section className="data-details">{this.state.details}</section>

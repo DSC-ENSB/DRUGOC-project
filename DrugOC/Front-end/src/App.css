@@ -40,7 +40,7 @@ a{
 }
 .main-log-in {
   height: 3.5rem;
-  width: 8rem;
+  width: 9rem;
   margin-left:50% ;
   border-radius: 50px;
   transition: all .4s linear;
@@ -115,6 +115,18 @@ input:focus{
   color: #764abc;
 }
 /* The of User interaction style  */
+.image{
+  position: absolute;
+  z-index: -1;  
+  top: 90px;
+  left: 25px;
+}
+.left-infos{
+  background-color: #fff;
+  border-radius:6px ;
+  padding: 30px;
+  box-shadow: -5px 30px 4px rgba(118, 74, 188, 0.04), 10px 10px 30px 4px rgba(45,78,255,0.15);
+}
 .flex-left-and-right{
   
   display: flex;
@@ -231,7 +243,7 @@ content: " ";
   height: 100vh;
   top:0;
   left: 0;
-  background-color: #764abc;
+  background-color: #1a1a1b;
   width: 73px;
   color: #fff !important;
 }
@@ -369,7 +381,7 @@ textarea{
   min-width: 370px;
   top:5%;
   display: none;  
-  right: calc(0 + 10px);
+  right: -10px;
   transform: translate(0%,-5%); 
   z-index: 9999;
   text-align:center;

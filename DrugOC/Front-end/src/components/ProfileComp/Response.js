@@ -35,7 +35,7 @@ export default class Response extends React.Component{
                             <br></br>
                             <div>Score de l'imputabilite intrinseque : {elem.scoreDeLimputabiliteIntrinseque}</div>
                             <br></br>
-                            <div>Score Informativite : {elem.scoreInformativite}</div>
+                            <div>{elem.scoreInformativite}</div>
                         </div>
                     ))
                     }

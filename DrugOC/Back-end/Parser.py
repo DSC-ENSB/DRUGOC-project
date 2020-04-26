@@ -11,7 +11,7 @@ import Sideeffect
 
 def RE_extractor(med):
 	
-	with open("CIS.csv",  encoding="ISO-8859-3") as f:
+	with open("CIS.txt",  encoding="ISO-8859-3") as f:
 		cis = []
 		for line in islice(f, 2, None): 
 			l = line.split("\t")

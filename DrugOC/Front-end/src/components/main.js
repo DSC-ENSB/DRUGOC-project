@@ -9,12 +9,12 @@ export default class Main extends Component {
            <section className="section-main">
                 <section className="welcome-section">
                    <h2 style={{color:'#764abc'}}>DRUGOC</h2>
-                   <p>Drug oversight and control first informatic tool for pharmacovigilance in Algeria to help doctors </p>
+                   <p>Drug Oversight and Controle, le nouvel outil connecté <br></br>conçu pour la pharmacovigilance en Algérie. </p>
                    <Link to="/log-in">
-                        <button className="main-log-in">LOG IN</button>
+                        <button className="main-log-in">Se connecter</button>
                     </Link>
                     <Link to="/sign-up">
-                        <button className="main-sign-up">SIGN UP</button>
+                        <button className="main-sign-up">S'inscrire</button>
                     </Link>
                </section>
                <section className="img-section">
@@ -22,7 +22,7 @@ export default class Main extends Component {
                </section>
            </section>
                <footer>
-                   For more details have a look on documentation at
+               Pour plus de détails, jetez un oeil sur la documentation en cliquant ici
                    <a href="http://selamasalem.me/DRUGOC-Documentation/" rel="opener">
                    <FaGithub 
                    style={{marginLeft:"5px" ,color:"black"}}
