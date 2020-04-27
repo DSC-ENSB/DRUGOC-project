@@ -7,7 +7,7 @@ def CriteresChronologiques(obj):
     
     if EEI == 0:
         #print("Evolution de l'effet: <<Suggestive>>") 
-        # Evolution de l'effet: <<Suggestive>> est un message  dans l'interface
+        #Evolution de l'effet: <<Suggestive>> est un message  dans l'interface
         EEI = 1
    
     elif EEI > 0 and EEI < 6: 
