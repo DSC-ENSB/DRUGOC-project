@@ -1,7 +1,10 @@
 # DrugOC
 DrugOC est une application web de pharmacovigilance qui permet d’atteindre deux objectifs principaux :
+
 1- Déterminer si un médicament est responsable ou pas de l'apparition d'un ou de plusieurs effets indésirables au cours d’un traitement.
+
 2- Déclarer ces effets indésirables aux autorités appropriées à travers des rapports complets.
+
 La procédure se fait suivant la méthode d'imputabilité française : https://www.ncbi.nlm.nih.gov/pubmed/23773347
 
 ## Intérêt
