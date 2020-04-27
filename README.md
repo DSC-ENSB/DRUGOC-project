@@ -1,7 +1,10 @@
 # DrugOC
 DrugOC est une application web de pharmacovigilance qui permet d’atteindre deux objectifs principaux :
+
 1- Déterminer si un médicament est responsable ou pas de l'apparition d'un ou de plusieurs effets indésirables au cours d’un traitement.
+
 2- Déclarer ces effets indésirables aux autorités appropriées à travers des rapports complets.
+
 La procédure se fait suivant la méthode d'imputabilité française : https://www.ncbi.nlm.nih.gov/pubmed/23773347
 
 ## Intérêt
@@ -14,8 +17,9 @@ Les médecins prescripteurs, les pharmaciens hospitaliers, les professeurs chef 
 
 ### Quand déclarer ?
 
-Immédiatement pour les effets  graves  ou  inattendus . Pas de délai défini pour les autres.
+Immédiatement pour les effets  graves  ou  inattendus . 
 
+Pas de délai défini pour les autres.
 
 ## Usage
 
@@ -34,21 +38,33 @@ Veuillez consulter la documentation du projet sur : http://selamasalem.me/DRUGOC
 
 ## Contribution
 
-Si vous avez des "Pull requests" n’hésitez pas. Pour des changements majeurs, veuillez ouvrir un "issue" pour discuter ce que vous souhaitez changer.
+Si vous souhaitez contribuer à notre projet veuillez effectuer un "Pull requests". 
+
+Pour des changements majeurs, veuillez ouvrir un "issue" pour discuter ce que vous souhaitez changer.
 
 ## Remerciement
 
 Un grand merci destiné à tous les membres du DSC-ENSB 2019/2020 :
-Salem Abderaouf, 
-Boudemia Ala eddine, 
-Kassa Baghdouche Louaï,
-Slimani Khaled,
-Meddour Yazid,
-Sana Amir,
-Belaidi Aya,
-Boubertakh Ramy,
-Gherbi Rabiaa,
-Hadid Amira.
+
+SALEM Abderaouf, 
+
+BOUDEMIA Ala eddine, 
+
+KASSA BAGHDOUCHE Louaï,
+
+SLIMANI Khaled,
+
+MEDDOUR Yazid,
+
+SANA Amir,
+
+BELAIDI Aya,
+
+BOUBERTAKH Ramy,
+
+GHERBI Rabiaa,
+
+HADID Amira.
 
 ## License
 [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
