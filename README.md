@@ -42,7 +42,7 @@ Si vous souhaitez contribuer à notre projet veuillez effectuer un "Pull request
 
 Pour des changements majeurs, veuillez ouvrir un "issue" pour discuter ce que vous souhaitez changer.
 
-# installation
+# Installation
 
 pour installer project lire [fichier](/install.md)
 
