@@ -36,7 +36,6 @@ export default class Response extends React.Component{
                             <div> Score de l'imputabilité extrinsèque: {elem.scoreDeLimputabiliteExtrinseque}</div>
                             <br></br>
                             <div>Score de l'imputabilité intrinsèque: {elem.scoreDeLimputabiliteIntrinseque}</div>
-                            
                         </div>
                     ))
                     }

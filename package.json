@@ -1,0 +1,34 @@
+{
+  "name": "drugoc",
+  "version": "1.0.0",
+  "description": "DrugOC est une application web de pharmacovigilance qui permet d’atteindre deux objectifs principaux :",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm:front\"  \"npm:back\"",
+    "requirements": "npm run requirement:python && npm run requirement:node",
+    "front": "cd DrugOC/Front-end  && npm start",
+    "back": "cd DrugOC/Back-end && flask run",
+    "requirement:python": "cd DrugOC/Back-end && python3 -m pip install requirement.txt",
+    "requirement:node": "npm i && cd DrugOC/Front-end  && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ala-Eddine-BOUDEMIA/DrugOC.git"
+  },
+  "keywords": [
+    "Drugs",
+    "pharmacovigilance",
+    "DSC-ENSB",
+    "DSC",
+    "ENSB"
+  ],
+  "author": "DSC-ENSB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ala-Eddine-BOUDEMIA/DrugOC/issues"
+  },
+  "homepage": "https://github.com/Ala-Eddine-BOUDEMIA/DrugOC#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  }
+}

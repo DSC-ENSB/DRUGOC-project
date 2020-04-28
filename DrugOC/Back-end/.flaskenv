@@ -1,0 +1,2 @@
+FLASK_ENV=production
+FLASK_APP=api_flask.py

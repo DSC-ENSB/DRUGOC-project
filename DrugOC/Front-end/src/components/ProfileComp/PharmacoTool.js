@@ -90,7 +90,8 @@ class PharmacoTool extends React.Component{
                 break
             case 'ddmt':
                 this.setState({details:"Date d'arrêt ou modification du traitement "})
-                break;
+                setState({details:"Date d'arret ou modification du traitement "})
+               break;
           }
     }
     HideInfo(){
@@ -128,6 +129,7 @@ class PharmacoTool extends React.Component{
                 </select>
                 <br></br>
                 <h6 style={{color:'#764abc'}}>Critères Semiologiques</h6>
+
                 <br></br>
                 <select value={this.state.critereSemiologiqueCliniqueOuParaclinique}
                 onChange={(event)=>{this.setState({critereSemiologiqueCliniqueOuParaclinique:Number(event.target.value)})}}>
