@@ -83,13 +83,13 @@ class PharmacoTool extends React.Component{
         dataBanner.classList.add('show')
         switch (type) {
             case 'dem':
-                this.setState({details:"date D'exposition Au Medicament"})
+                this.setState({details:"Date d'exposition au médicament"})
                 break
             case 'daei':
-                this.setState({details:"data D'apparition De l'effet Indisérable"})
+                this.setState({details:"Date d'apparition de l'effet indisérable"})
                 break
             case 'ddmt':
-                this.setState({details:"date D'arret Ou Modification Du Traitement "})
+                this.setState({details:"Date d'arrêt ou modification du traitement "})
                 break;
           }
     }
@@ -101,7 +101,7 @@ class PharmacoTool extends React.Component{
         return(
          <div className={this.props.status?"pharma raised":'hide raised'}>
             <section className="box criter-chrono">
-                <h6 style={{color:'#764abc'}}>Critère Chronologie</h6>
+                <h6 style={{color:'#764abc'}}>Critères Chronologiques</h6>
                 <br></br>
                 <select value={this.state.delaiDapparitionCritereChrono} 
                 onChange={(event)=>{this.setState({delaiDapparitionCritereChrono:Number(event.target.value)})}}>
@@ -122,10 +122,12 @@ class PharmacoTool extends React.Component{
                 <select value={this.state.reAdministration}
                 onChange={(event)=>{this.setState({reAdministration:Number(event.target.value)})}}>
                     <option value="" disabled selected>Ré administration</option>
-                    <option value={0}>présent</option>
+                    <option value={0}>présente</option>
                     <option value={1}>absente</option>
                     <option value={2}>non concluante</option>
                 </select>
+                <br></br>
+                <h6 style={{color:'#764abc'}}>Critères Semiologiques</h6>
                 <br></br>
                 <select value={this.state.critereSemiologiqueCliniqueOuParaclinique}
                 onChange={(event)=>{this.setState({critereSemiologiqueCliniqueOuParaclinique:Number(event.target.value)})}}>
@@ -145,9 +147,9 @@ class PharmacoTool extends React.Component{
                 <select value={this.state.examenComplementaire}
                 onChange={(event)=>{this.setState({examenComplementaire:Number(event.target.value)})}}>
                     <option value="" disabled selected>Examens complémentaires</option>
-                    <option value={0}>présent</option>
-                    <option value={1}>absente</option>
-                    <option value={2}>non concluante / non disponible</option>
+                    <option value={0}>présents</option>
+                    <option value={1}>absents</option>
+                    <option value={2}>non concluants / non disponibles</option>
                 </select>
             </section>
             <div className={!this.state.isLoading?'hide':'show wait-layer'}></div>

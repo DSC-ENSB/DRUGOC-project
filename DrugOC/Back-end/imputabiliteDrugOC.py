@@ -41,10 +41,10 @@ def imputabiliteProcess(data_json):
 
         results.append(
             {
-               "interaction" : "imputabilite entre le medicament: "+ data_json["medicament"][i]["DCI"] + " et l'effet indiserable: " + data_json["effetIndiserable"][j]["name"],
-               "delaiA" : "le délai du paramètre A est " + str(delaiA),
-               "delaiB" : "le délai du paramètre B est " + str(delaiB),
-               "scoreInformativite" : "Le score informativité est " + SI,
+               "interaction" : "imputabilité entre le médicament: "+ data_json["medicament"][i]["DCI"] + " et l'effet indisérable: " + data_json["effetIndiserable"][j]["name"],
+               "delaiA" : "le délai du paramètre A est: " + str(delaiA),
+               "delaiB" : "le délai du paramètre B est: " + str(delaiB),
+               "scoreInformativite" : "Le score informativité est: " + SI,
                "criteresChronologiques" : scoreCriteresChrono,
                "criteresSemiologiques" : scoreCriteresSemio,
                "scoreDeLimputabiliteIntrinseque" : scoreIntrinseque,
