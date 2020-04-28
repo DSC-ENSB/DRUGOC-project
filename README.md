@@ -42,6 +42,10 @@ Si vous souhaitez contribuer à notre projet veuillez effectuer un "Pull request
 
 Pour des changements majeurs, veuillez ouvrir un "issue" pour discuter ce que vous souhaitez changer.
 
+# installation
+
+pour installer project lire [fichier](/install.md)
+
 ## Remerciement
 
 Un grand merci destiné à tous les membres du DSC-ENSB 2019/2020 :
