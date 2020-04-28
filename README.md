@@ -25,7 +25,7 @@ Pas de délai défini pour les autres.
 
 Veuillez consulter la documentation du projet sur : http://selamasalem.me/DRUGOC-Documentation/ 
 
-## Perspictives
+## Perspectives
 
 1- Créer une base de données algérienne en Français et en Anglais, dont les médicaments et les effets indésirables sont extraits à partir de publications scientifiques et en collaboration avec des professionnels de santé.
 
