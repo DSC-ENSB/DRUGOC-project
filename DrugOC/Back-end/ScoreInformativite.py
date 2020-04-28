@@ -5,6 +5,13 @@ def daysToJours(date):
         return newDate.replace('day', 'jour')
     return newDate.replace('days', 'jours')
 
+def daysToJours(date):
+    
+    newDate = str(date)
+    if newDate[0] == '1' and newDate[1] == ' ':
+        return newDate.replace('day', 'jour')
+    return newDate.replace('days', 'jours')
+
 def ScoreInformativite(DAEI, DDMT, DEM):
     
     delaiA = Date.parametreA(DAEI, DEM) if DAEI else 0

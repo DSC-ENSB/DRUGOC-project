@@ -19,7 +19,7 @@ export default class Response extends React.Component{
                     {typeof(this.props.resData)==="string"?<div style={{color:'red'}}>Somthing Went wrong</div>:
                     this.props.resData.map((elem,i)=>(
                         <div>
-                            <h5 style={{color:"#1fb5cf"}}>Interaction {i+1}</h5>
+                            <h5 style={{color:"#1fb5cf"}}>Intéraction {i+1}</h5>
                             <hr></hr>
                             <div>{elem.interaction}</div>
                             <br></br>
@@ -29,14 +29,13 @@ export default class Response extends React.Component{
                             <br></br>
                             <div>{elem.scoreInformativite}</div>
                             <br></br>
-                            <div>Critère Chronologique :{elem.criteresChronologiques}</div>
+                            <div>Score des critères chronologiques: {elem.criteresChronologiques}</div>
                             <br></br>
-                            <div>Critère Semiologique : {elem.criteresSemiologiques}</div>
+                            <div>Score des critères Semiologiques: {elem.criteresSemiologiques}</div>
                             <br></br>
-                            <div> Score de l'imputabilité extrinseque : {elem.scoreDeLimputabiliteExtrinseque}</div>
+                            <div> Score de l'imputabilité extrinsèque: {elem.scoreDeLimputabiliteExtrinseque}</div>
                             <br></br>
-                            <div>Score de l'imputabilité intrinseque : {elem.scoreDeLimputabiliteIntrinseque}</div>
-                            
+                            <div>Score de l'imputabilité intrinsèque: {elem.scoreDeLimputabiliteIntrinseque}</div>
                         </div>
                     ))
                     }
