@@ -83,13 +83,13 @@ class PharmacoTool extends React.Component{
         dataBanner.classList.add('show')
         switch (type) {
             case 'dem':
-                this.setState({details:"date D'exposition Au Medicament"})
+                this.setState({details:"Date d'exposition au medicament"})
                 break
             case 'daei':
-                this.setState({details:"data D'apparition De l'effet Indisérable"})
+                this.setState({details:"Data d'apparition De l'effet indisérable"})
                 break
             case 'ddmt':
-                this.setState({details:"date D'arret Ou Modification Du Traitement "})
+                this.setState({details:"Date d'arret ou modification du traitement "})
                 break;
           }
     }
@@ -101,7 +101,7 @@ class PharmacoTool extends React.Component{
         return(
          <div className={this.props.status?"pharma raised":'hide raised'}>
             <section className="box criter-chrono">
-                <h6 style={{color:'#764abc'}}>Critère Chronologie</h6>
+                <h6 style={{color:'#764abc'}}>Critère Chronologiques</h6>
                 <br></br>
                 <select value={this.state.delaiDapparitionCritereChrono} 
                 onChange={(event)=>{this.setState({delaiDapparitionCritereChrono:Number(event.target.value)})}}>
@@ -126,6 +126,8 @@ class PharmacoTool extends React.Component{
                     <option value={1}>absente</option>
                     <option value={2}>non concluante</option>
                 </select>
+                <br></br>
+                <h6 style={{color:'#764abc'}}>Critère Semiologiques</h6>
                 <br></br>
                 <select value={this.state.critereSemiologiqueCliniqueOuParaclinique}
                 onChange={(event)=>{this.setState({critereSemiologiqueCliniqueOuParaclinique:Number(event.target.value)})}}>
