@@ -90,7 +90,6 @@ class PharmacoTool extends React.Component{
                 break
             case 'ddmt':
                 this.setState({details:"Date d'arrêt ou modification du traitement "})
-                setState({details:"Date d'arret ou modification du traitement "})
                break;
           }
     }
@@ -128,7 +127,7 @@ class PharmacoTool extends React.Component{
                     <option value={2}>non concluante</option>
                 </select>
                 <br></br>
-                <h6 style={{color:'#764abc'}}>Critères Semiologiques</h6>
+                <h6 style={{color:'#764abc'}}>Critères Sémiologiques</h6>
 
                 <br></br>
                 <select value={this.state.critereSemiologiqueCliniqueOuParaclinique}

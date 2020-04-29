@@ -31,7 +31,7 @@ export default class Response extends React.Component{
                             <br></br>
                             <div>Score des critères chronologiques: {elem.criteresChronologiques}</div>
                             <br></br>
-                            <div>Score des critères Semiologiques: {elem.criteresSemiologiques}</div>
+                            <div>Score des critères sémiologiques: {elem.criteresSemiologiques}</div>
                             <br></br>
                             <div> Score de l'imputabilité extrinsèque: {elem.scoreDeLimputabiliteExtrinseque}</div>
                             <br></br>

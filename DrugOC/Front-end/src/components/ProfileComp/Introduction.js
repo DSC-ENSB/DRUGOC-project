@@ -13,7 +13,7 @@ class Introduction extends React.Component{
             style={{color:'white'}}
             onClick={this.props.handleClick}
             >
-                Next
+                Suivant
             </button>
             </div>
         )

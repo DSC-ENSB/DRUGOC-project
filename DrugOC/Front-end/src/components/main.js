@@ -9,7 +9,7 @@ export default class Main extends Component {
            <section className="section-main">
                 <section className="welcome-section">
                    <h2 style={{color:'#764abc'}}>DRUGOC</h2>
-                   <p>Drug Oversight and Controle, le nouvel outil connecté <br></br>conçu pour la pharmacovigilance en Algérie. </p>
+                   <p>Drug Oversight and Control, le nouvel outil connecté <br></br>conçu pour la pharmacovigilance en Algérie. </p>
                    <Link to="/log-in">
                         <button className="main-log-in">Se connecter</button>
                     </Link>
