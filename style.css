@@ -15,6 +15,13 @@ h1{
 h1:hover{
     color:rgb(47, 46, 65)
 }
+h4{
+    color: #eb520c;
+}
+
+img{
+    margin-bottom: 15px;
+}
 header{
     position: fixed;
     background-color: white;
@@ -115,6 +122,9 @@ a:not(.brand):hover{
         text-align: center;
         font-size: 22px;
     }
+    .first-image{
+        width: 100%;
+    }
   }
   @media screen and (max-width: 500px) {
     header{
@@ -122,6 +132,9 @@ a:not(.brand):hover{
     }
     aside {
       display: none;
+    }
+    .first-image{
+        width: 100%;
     }
     main{
         width: 100%;
