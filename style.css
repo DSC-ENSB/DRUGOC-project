@@ -122,7 +122,7 @@ a:not(.brand):hover{
         text-align: center;
         font-size: 22px;
     }
-    .first-image{
+    .img{
         width: 100%;
     }
   }
@@ -133,7 +133,7 @@ a:not(.brand):hover{
     aside {
       display: none;
     }
-    .first-image{
+    .img{
         width: 100%;
     }
     main{
